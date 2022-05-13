@@ -2,7 +2,7 @@ import {
     useNavigate
 } from "react-router-dom";
 import {useState} from "react";
-import {stringify} from "querystring";
+import Api from "../../common/api";
 
 function Login() {
     let navigate = useNavigate();
@@ -22,21 +22,14 @@ function Login() {
                    onChange={e => setPassword(e.target.value)}/>
 
             <button onClick={() => {
-                fetch('http://localhost:3000/api/login', {
-                    method: 'POST',
-                    headers: new Headers({ 'content-type': 'application/json' }),
-                    body:
-                        JSON.stringify({
-                            email,
-                            password
-                        })
-                }).then(
-                    (x) => {
-                        console.log('success',x )
-                    }
-                ).catch((e) => console.log(e))
-                console.log('success')
-                // navigate("/main");
+                Api.login(email, password)
+                .then(({data}: any) => {
+                    sessionStorage.setItem('token', `Bearer ${data.token}`)
+                    navigate("/main");
+                })
+                .catch((e: any) => {
+                    alert(e.response.data)
+                })
             }}>
                 Sign in
             </button>
