@@ -4,7 +4,8 @@
 - [ ] Add state manager
 - [ ] Add logout
 - [ ] Add normal markup
-
+- [ ] Add eslint
+- [ ] Add alias
 
 
 ## Test:
