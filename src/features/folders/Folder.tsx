@@ -1,11 +1,21 @@
 import Card from "../cards/Card";
 
-function Folder() {
+type Folder = {
+    id: number,
+    title: string,
+    created: string
+}
+// TODO export type Folder
+
+function Folder({id, title, created}: Folder) {
+    console.log(id, title, created)
     return (
         <div className="folder">
             {'Folder'}
-            <Card />
-            {/* Can work with multiply cards in one time? For example just change card state */}
+            <div>id - {id}</div>
+            <div>title - {title}</div>
+            <div>created - {created}</div>
+            {/*<Card />*/}
         </div>
     );
 }
