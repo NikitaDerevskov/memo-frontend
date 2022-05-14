@@ -6,6 +6,7 @@
 - [ ] Add normal markup
 - [ ] Add eslint
 - [ ] Add alias
+- [ ] Add lazy loading
 
 
 ## Test:
