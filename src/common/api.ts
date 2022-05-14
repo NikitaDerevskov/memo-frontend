@@ -19,6 +19,11 @@ class Api {
         return axios.get( `${this.serverUrl}/api/get-folders` ,
             { headers: {"Authorization" : this.getToken()} })
     }
+
+    getFolderCards(folderId: number) {
+        return axios.get( `${this.serverUrl}/api/get-cards` ,
+            {params: {folderId}, headers: {"Authorization" : this.getToken()}})
+    }
 }
 
 export default new Api()
