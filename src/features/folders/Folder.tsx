@@ -28,12 +28,36 @@ function Folder() {
             .catch((e: { response: { data: any; }; }) => alert(e.response.data))
     }, [])
 
+    let handleKeys = (event: { code: string; }) => {
+        window.console.log('asd', event.code)
+        if (event.code === 'Space') {
+            setShowContent(!showContent)
+        }
+        if (event.code === 'ArrowRight') {
+            setCurrentCard(currentCard + 1)
+        }
+        if (event.code === 'ArrowLeft') {
+            setCurrentCard(currentCard - 1)
+        }
+        if (event.code === 'Escape') {
+            goBack()
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener("keydown", handleKeys);
+        return () => {
+            window.removeEventListener("keydown", handleKeys);
+        };
+    });
+
 
     let navigate = useNavigate();
 
     const goBack = () => {
         navigate("/main");
     }
+
     return (
         <div className="folder">
             {'Folder'}
