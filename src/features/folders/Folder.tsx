@@ -2,18 +2,15 @@ import Card from "../cards/Card";
 import {useNavigate, useLocation} from "react-router-dom";
 import {useEffect, useState} from "react";
 import Api from "../../common/api";
-type Folder = {
-    id: number,
-    title: string,
-    created: string
-}
-// TODO export type Folder
+import {FolderT} from "../../common/types";
+import {CardT} from "../../common/types";
+import Card from "../cards/Card";
 
 function Folder() {
     let location = useLocation();
     let [showContent, setShowContent] = useState(false)
     let [currentCard, setCurrentCard] = useState(0)
-    const {id, title, created} =  location.state as Folder
+    const {id, title, created} =  location.state as FolderT
 
     let [cards, setCards] = useState([])
 
@@ -68,7 +65,7 @@ function Folder() {
             {/* TODO show only one 1 card */}
             {
                 cards
-                    .map(({id, title, content, last_modified}: Card) =>
+                    .map(({id, title, content, last_modified}: CardT) =>
                         <Card
                             id={id}
                             title={title}

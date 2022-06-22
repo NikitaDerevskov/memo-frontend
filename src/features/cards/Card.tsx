@@ -1,14 +1,7 @@
 
-type Card = {
-    id: number,
-    title: string,
-    content: string,
-    last_modified: string,
-    showContent: boolean
-}
-// TODO export type Card
+import {Card} from "../../common/types";
 
-function Card({id, title, content, last_modified, showContent, onClick} :any) {
+function Card({id, title, content, last_modified, showContent, onClick} : any) {
     return (
         <div className="card" onClick={onClick}>
             {'Card'}
