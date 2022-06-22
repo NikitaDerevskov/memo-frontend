@@ -12,6 +12,7 @@
 - [ ] Add eslint
 - [ ] Add alias
 - [ ] Add lazy loading
+- [ ] Add linter to imports (by alph)
 
 
 ## Test:
