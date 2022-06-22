@@ -1,4 +1,3 @@
-import Card from "../cards/Card";
 import {useNavigate, useLocation} from "react-router-dom";
 import {useEffect, useState} from "react";
 import Api from "../../common/api";
@@ -25,6 +24,7 @@ function Folder() {
             .catch((e: { response: { data: any; }; }) => alert(e.response.data))
     }, [])
 
+    /* TODO refactor handle keys */
     let handleKeys = (event: { code: string; }) => {
         window.console.log('asd', event.code)
         if (event.code === 'Space') {
