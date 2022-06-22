@@ -1,3 +1,8 @@
+# Setup
+1. Run `yarn`
+2. Run `yarn start`
+
+
 # TODO
 - [ ] Add permissions to router
 - [ ] Add better work with forms in React
