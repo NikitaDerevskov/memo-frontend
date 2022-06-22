@@ -23,8 +23,9 @@ function Login() {
 
             <button onClick={() => {
                 Api.login(email, password)
-                .then(({data}: any) => {
-                    sessionStorage.setItem('token', `Bearer ${data.token}`)
+                .then(({data}: {data: string}) => {
+                    /* TODO work with Bearer */
+                    sessionStorage.setItem('token', `Bearer ${data}`)
                     navigate("/main");
                 })
                 .catch((e: any) => {

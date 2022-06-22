@@ -17,7 +17,6 @@ function Folders() {
             .catch((e: { response: { data: any; }; }) => alert(e.response.data))
     }, [])
 
-    // @ts-ignore
     return (
         <div className="folders">
             {'Folders'}
