@@ -13,6 +13,8 @@
 - [ ] Add alias
 - [ ] Add lazy loading
 - [ ] Add linter to imports (by alph)
+- [ ] Think about css names
+- [ ] Css animations?)
 
 
 ## Test:
