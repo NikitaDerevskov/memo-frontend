@@ -1,14 +1,19 @@
-function Table(props: { children: any }) { /* TODO change type to good */
+type TableT = {
+    children: JSX.Element,
+    fetchAction: () => void,
+}
+
+function Table({children, fetchAction}: TableT) {
     return (
         <>
-            { props.children }
+            { children }
             {/* TODO don't show pagination if count <= limit */}
             <div className="pagination">
                 {/* TODO use good function like in hooks tutorial :) */}
                 {/* TODO add disabled when needed */}
-                <button>{'<'}</button>
+                <button onClick={() => fetchAction()}>{'<'}</button>
                 {'0 from 5'}
-                <button>{'>'}</button>
+                <button onClick={() => fetchAction()}>{'>'}</button>
             </div>
         </>)
 }

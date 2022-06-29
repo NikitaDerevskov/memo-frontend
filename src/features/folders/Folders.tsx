@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import Api from "../../common/api";
 import {Link} from "react-router-dom";
+import FoldersTable from "./FoldersTable";
 
 function Folders() {
     let [folders, setFolders] = useState([])
@@ -19,6 +20,8 @@ function Folders() {
     return (
         <div className="folders">
             {'Folders'}
+            <FoldersTable />
+            {/* TODO export type */}
             { folders.map(({id, title, created}: {id: number, title: string, created: string}) =>
                 <Link
                     style={{ display: "block", margin: "1rem 0" }}
