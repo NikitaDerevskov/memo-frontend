@@ -25,6 +25,7 @@ function Login() {
                 Api.login(email, password)
                 .then(({data}: {data: string}) => {
                     /* TODO work with Bearer */
+                    /* TODO change to redux - just for fun */
                     sessionStorage.setItem('token', `Bearer ${data}`)
                     navigate("/main");
                 })
