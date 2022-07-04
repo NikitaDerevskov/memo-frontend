@@ -5,7 +5,8 @@ function FoldersTable({folders}: any) { /* TODO add good type */
 
     const fetchAction = () => { console.log('fetchAction') }
 
-    console.log('hey', folders)
+    console.log('folders', folders)
+
     return (<div>
         <Table fetchAction={fetchAction}>
             <table>
