@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import Api from "../../common/api";
 import FoldersTable from "./FoldersTable";
+import Header from "../header/Header";
 
 function Folders() {
     let [folders, setFolders] = useState([])
@@ -17,10 +18,13 @@ function Folders() {
     }, [])
 
     return (
-        <div className="folders">
-            {'Folders'}
-            <FoldersTable folders={folders} />
-        </div>
+        <>
+            <Header />
+            <div className="folders">
+                {'Folders'}
+                <FoldersTable folders={folders} />
+            </div>
+        </>
     );
 }
 

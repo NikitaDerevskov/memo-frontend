@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import Api from "../../common/api";
 import {FolderT} from "../../common/types";
 import CardsTable from "./CardsTable";
+import Header from "../header/Header";
 
 function Folder() {
     let location = useLocation();
@@ -19,11 +20,14 @@ function Folder() {
     }, [])
 
     return (
+        <>
+        <Header />
         <div className="folder">
                 {'Cards'}
                 <button>Repeat</button>
                 <CardsTable cards={cards} />
             </div>
+        </>
     );
 }
 
