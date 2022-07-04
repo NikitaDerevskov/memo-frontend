@@ -5,7 +5,7 @@ function CardTable({cards}: any) { /* TODO add good type */
 
     const fetchAction = () => { console.log('fetchAction') }
 
-    console.log('hey', cards)
+    console.log('cards', cards)
     return (<div>
         <Table fetchAction={fetchAction}>
             <table>
