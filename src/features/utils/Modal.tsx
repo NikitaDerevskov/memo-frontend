@@ -1,7 +1,16 @@
-function Modal() {
-    return <div>
-        {'Modal'}
-    </div>
+import { ReactChild, ReactFragment, ReactPortal } from "react"
+
+function Modal(props: { children: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) { // TODO refactor type
+
+    /* TODO refactor styles, this only for test purpose */
+    return (
+        <div className="modal">
+            <div className="modal-content">
+            {'Modal'}
+            {props.children}
+            </div>
+        </div>
+    )
 }
 
 export default Modal
