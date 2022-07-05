@@ -25,7 +25,7 @@ function Folder() {
     }, [])
 
     let card = ({title, content}: CardT, showContent: boolean) => {
-        return <div>1{showContent}2 {title} {showContent && content}</div>
+        return <div>{title} {showContent && content}</div>
     }
 
     return (
