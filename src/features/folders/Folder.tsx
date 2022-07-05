@@ -26,7 +26,7 @@ function Folder() {
                 setCards(data)
             })
             .catch((e: { response: { data: any; }; }) => alert(e.response.data))
-    }, [])
+    }, [id])
 
     let card = ({title, content}: CardT, showContent: boolean) => {
         return <div>{title} {showContent && content}</div>
@@ -72,7 +72,7 @@ function Folder() {
                 </Modal>}
 
             {/* TODO export this */}
-            {showEditModal && <EditCard folderId={id} showEditModal={showEditModal}/>}
+            {showEditModal && <EditCard folderId={id} setShowEditModal={setShowEditModal}/>}
         </>
     );
 }

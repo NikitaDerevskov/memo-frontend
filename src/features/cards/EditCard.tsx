@@ -4,7 +4,8 @@ import Api from "../../common/api";
 import {CardT} from "../../common/types";
 
 /* TODO add validation */
-function EditCard({folderId, title, content, last_modified, showEditModal}: any) {/* TODO fix type*/
+/* TODO refactor work to state from url it will be better */
+function EditCard({folderId, title, content, last_modified}: any) {/* TODO fix type*/
 
     let isCardExisted = Boolean(last_modified)
 
@@ -16,13 +17,11 @@ function EditCard({folderId, title, content, last_modified, showEditModal}: any)
     const handleClick = async () => {
         try {
             /* TODO think about last_modified - now this is undefined */
-            console.log('TO SEND', folderId, cardData)
             const response = await Api.createCard({folderId, ...cardData})
 
             if (!response.ok) {
                 throw new Error(`Error! status: ${response.status}`);
             }
-            showEditModal(false)
         } catch (err: any) { /* TODO fix type */
             setError(err.message)
         } finally {
