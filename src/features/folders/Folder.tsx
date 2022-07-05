@@ -5,6 +5,7 @@ import {CardT, FolderT} from "../../common/types";
 import CardsTable from "./CardsTable";
 import Header from "../header/Header";
 import Modal from "../utils/Modal";
+import EditCard from "../cards/EditCard";
 
 function Folder() {
     let location = useLocation();
@@ -14,8 +15,11 @@ function Folder() {
     let [currentCard, setCurrentCard] = useState(0)
     let [showModal, setShowModal] = useState(false)
     let [showContent, setShowContent] = useState(false)
+    let [showEditModal, setShowEditModal] = useState(false)
 
     /* TODO refactor component - to not fetch data every time */
+    /* TODO refactor to async await */
+    /* TODO add loading status and error */
     useEffect(() => {
         Api.getFolderCards(id)
             .then(({data}: any) => {
@@ -34,6 +38,7 @@ function Folder() {
         <div className="folder">
                 {'Cards'}
                 <button onClick={() => {setShowModal(true)}}>Repeat</button>
+                <button onClick={() => {setShowEditModal(true)}}>Create Card</button>
                 <CardsTable cards={cards} />
 
             </div>
@@ -60,8 +65,14 @@ function Folder() {
                             {'>'}
                         </button>
                     </div>
-                    <button onClick={() => {setShowModal(false)}}>CLOSE</button>
+                    <button onClick={() => {
+                        setShowModal(false)
+                        setCurrentCard(0)
+                    }}>CLOSE</button>
                 </Modal>}
+
+            {/* TODO export this */}
+            {showEditModal && <EditCard folderId={id} showEditModal={showEditModal}/>}
         </>
     );
 }

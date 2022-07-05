@@ -29,6 +29,12 @@ class Api {
         return axios.get( `${this.serverUrl}/api/get-cards` ,
             {params: {folderId}, headers: {"Authorization" : this.getToken()}})
     }
+
+    /* TODO work with type better */
+    createCard({folderId, content, title}: {folderId: number, content: string, title: string}) {
+        return axios.post( `${this.serverUrl}/api/create-card` ,
+            {folderId, content, title}, {headers: {"Authorization" : this.getToken()}})
+    }
 }
 
 export default new Api()
