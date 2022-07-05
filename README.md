@@ -16,6 +16,7 @@
 - [ ] Think about css names
 - [ ] Css animations?)
 - [ ] Add eslint
+- [ ] Add sentry
 
 
 ## Test:
