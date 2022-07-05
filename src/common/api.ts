@@ -1,6 +1,11 @@
 const axios = require('axios').default;
 
 
+/* TODO export cards, auth and etc, create basic transport */
+/* TODO export urls to constants */
+/* TODO add basic headers (token for example) */
+/* TODO add cancel request ? */
+
 class Api {
     serverUrl: string = 'http://localhost:3000'
 
