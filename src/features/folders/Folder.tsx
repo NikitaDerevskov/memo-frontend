@@ -1,11 +1,10 @@
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import Api from "../../common/api";
 import {CardT, FolderT} from "../../common/types";
 import CardsTable from "./CardsTable";
 import Header from "../header/Header";
 import Modal from "../utils/Modal";
-import EditCard from "../cards/EditCard";
 
 function Folder() {
     let location = useLocation();
@@ -15,7 +14,7 @@ function Folder() {
     let [currentCard, setCurrentCard] = useState(0)
     let [showModal, setShowModal] = useState(false)
     let [showContent, setShowContent] = useState(false)
-    let [showEditModal, setShowEditModal] = useState(false)
+    let navigate = useNavigate();
 
     /* TODO refactor component - to not fetch data every time */
     /* TODO refactor to async await */
@@ -38,7 +37,10 @@ function Folder() {
         <div className="folder">
                 {'Cards'}
                 <button onClick={() => {setShowModal(true)}}>Repeat</button>
-                <button onClick={() => {setShowEditModal(true)}}>Create Card</button>
+                <button onClick={() => {
+                    /* TODO rethink */
+                    navigate(`/folder/${id}/card/new`);
+                }}>Create Card</button>
                 <CardsTable cards={cards} />
 
             </div>
@@ -70,9 +72,6 @@ function Folder() {
                         setCurrentCard(0)
                     }}>CLOSE</button>
                 </Modal>}
-
-            {/* TODO export this */}
-            {showEditModal && <EditCard folderId={id} setShowEditModal={setShowEditModal}/>}
         </>
     );
 }
