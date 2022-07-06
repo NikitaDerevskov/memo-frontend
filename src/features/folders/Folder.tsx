@@ -31,6 +31,23 @@ function Folder() {
         return <div>{title} {showContent && content}</div>
     }
 
+    /* TODO this is just for fun - it is 100% not production */
+    let deleteAction = async (cardId: number) => {
+        setTimeout(async () => {
+            await Api.deleteCard(cardId)
+        })
+
+        setTimeout(async () => {
+            await  Api.getFolderCards(id)
+                .then(({data}: any) => {
+                    setCards(data)
+                    console.log("HEY")
+                })
+                .catch((e: { response: { data: any; }; }) => alert(e.response.data))
+        }, 100)
+        console.log("WHATIS YO")
+
+    }
     return (
         <>
         <Header />
@@ -41,7 +58,7 @@ function Folder() {
                     /* TODO rethink */
                     navigate(`/folder/${id}/card/new`, { state: { id} });
                 }}>Create Card</button>
-                <CardsTable cards={cards} />
+                <CardsTable cards={cards} deleteAction={deleteAction} />
 
             </div>
             {/* TODO create another component - card modal with this data */}

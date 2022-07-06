@@ -35,6 +35,11 @@ class Api {
         return axios.post( `${this.serverUrl}/api/create-card` ,
             {folderId, content, title}, {headers: {"Authorization" : this.getToken()}})
     }
+
+    deleteCard(cardId: number) {
+        return axios.delete( `${this.serverUrl}/api/delete-card` ,
+            {params: {cardId}, headers: {"Authorization" : this.getToken()}})
+    }
 }
 
 export default new Api()

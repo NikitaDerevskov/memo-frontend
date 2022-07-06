@@ -1,7 +1,7 @@
 import Table from "../utils/Table";
 import {CardT} from "../../common/types";
 
-function CardTable({cards}: any) { /* TODO add good type */
+function CardTable({cards, deleteAction}: any) { /* TODO add good type */
 
     const fetchAction = () => { console.log('fetchAction') }
 
@@ -30,7 +30,9 @@ function CardTable({cards}: any) { /* TODO add good type */
                             <td>
                                 Edit
                             </td>
-                            <td>
+                            <td onClick={async () => {
+                                deleteAction(id)
+                            }}>
                                 X
                             </td>
                         </tr>

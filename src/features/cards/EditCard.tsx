@@ -1,7 +1,6 @@
 import Modal from "../utils/Modal";
 import {useState} from "react";
 import Api from "../../common/api";
-import {CardT} from "../../common/types";
 import {useLocation, useNavigate} from "react-router-dom";
 
 /* TODO add validation */
