@@ -2,12 +2,17 @@ import Modal from "../utils/Modal";
 import {useState} from "react";
 import Api from "../../common/api";
 import {CardT} from "../../common/types";
+import {useLocation, useNavigate} from "react-router-dom";
 
 /* TODO add validation */
 /* TODO refactor work to state from url it will be better */
-function EditCard({folderId, title, content, last_modified}: any) {/* TODO fix type*/
+function EditCard({title, content, last_modified}: any) {/* TODO fix type*/
 
     let isCardExisted = Boolean(last_modified)
+    let location = useLocation();
+    let {id} = location.state as any
+
+    let navigate = useNavigate()
 
     /* TODO add work with loading and error */
     const [isLoading, setIsLoading] = useState(false);
@@ -17,8 +22,9 @@ function EditCard({folderId, title, content, last_modified}: any) {/* TODO fix t
     const handleClick = async () => {
         try {
             /* TODO think about last_modified - now this is undefined */
-            const response = await Api.createCard({folderId, ...cardData})
+            const response = await Api.createCard({folderId: id, ...cardData})
 
+            navigate(`/folder/${id}`, {state: {id}})
             if (!response.ok) {
                 throw new Error(`Error! status: ${response.status}`);
             }

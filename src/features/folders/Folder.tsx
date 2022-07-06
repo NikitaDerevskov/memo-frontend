@@ -39,7 +39,7 @@ function Folder() {
                 <button onClick={() => {setShowModal(true)}}>Repeat</button>
                 <button onClick={() => {
                     /* TODO rethink */
-                    navigate(`/folder/${id}/card/new`);
+                    navigate(`/folder/${id}/card/new`, { state: { id} });
                 }}>Create Card</button>
                 <CardsTable cards={cards} />
 
