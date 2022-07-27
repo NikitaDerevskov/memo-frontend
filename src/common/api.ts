@@ -8,7 +8,7 @@ const axios = require('axios').default;
 class Api {
   serverUrl: string = 'http://localhost:3000';
 
-  getToken() { // TODO refactor
+  static getToken() { // TODO refactor
     return sessionStorage.getItem('token');
   }
 
@@ -22,14 +22,14 @@ class Api {
   getFolders() {
     return axios.get(
       `${this.serverUrl}/api/get-folders`,
-      { headers: { Authorization: this.getToken() } },
+      { headers: { Authorization: Api.getToken() } },
     );
   }
 
   getFolderCards(folderId: number) {
     return axios.get(
       `${this.serverUrl}/api/get-cards`,
-      { params: { folderId }, headers: { Authorization: this.getToken() } },
+      { params: { folderId }, headers: { Authorization: Api.getToken() } },
     );
   }
 
@@ -38,14 +38,14 @@ class Api {
     return axios.post(
       `${this.serverUrl}/api/create-card`,
       { folderId, content, title },
-      { headers: { Authorization: this.getToken() } },
+      { headers: { Authorization: Api.getToken() } },
     );
   }
 
   deleteCard(cardId: number) {
     return axios.delete(
       `${this.serverUrl}/api/delete-card`,
-      { params: { cardId }, headers: { Authorization: this.getToken() } },
+      { params: { cardId }, headers: { Authorization: Api.getToken() } },
     );
   }
 }
