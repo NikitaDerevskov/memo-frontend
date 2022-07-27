@@ -33,19 +33,10 @@ function Folder() {
 
     /* TODO this is just for fun - it is 100% not production */
     let deleteAction = async (cardId: number) => {
-        setTimeout(async () => {
-            await Api.deleteCard(cardId)
-        })
-
-        setTimeout(async () => {
-            await  Api.getFolderCards(id)
-                .then(({data}: any) => {
-                    setCards(data)
-                    console.log("HEY")
-                })
-                .catch((e: { response: { data: any; }; }) => alert(e.response.data))
-        }, 100)
-        console.log("WHATIS YO")
+        Api.deleteCard(cardId)
+        console.log('without await - haha')
+        let cardsWithoutDelited = cards.filter((card: CardT) => card.id !== cardId)
+        setCards((cards) => cardsWithoutDelited)
 
     }
     return (
