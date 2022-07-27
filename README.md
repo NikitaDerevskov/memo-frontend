@@ -15,7 +15,7 @@
 - [ ] Add linter to imports (by alph)
 - [ ] Think about css names
 - [ ] Css animations?)
-- [ ] Add eslint
+- [x] Add eslint
 - [ ] Add sentry
 - [ ] Add ci/cd (and linter stage)
 
