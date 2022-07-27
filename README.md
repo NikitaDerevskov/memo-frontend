@@ -17,6 +17,7 @@
 - [ ] Css animations?)
 - [ ] Add eslint
 - [ ] Add sentry
+- [ ] Add ci/cd (and linter stage)
 
 
 ## Test:

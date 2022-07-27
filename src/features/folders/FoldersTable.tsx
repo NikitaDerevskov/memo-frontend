@@ -1,50 +1,55 @@
-import Table from "../utils/Table";
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
+import Table from '../utils/Table';
 
-function FoldersTable({folders}: any) { /* TODO add good type */
+function FoldersTable({ folders }: any) { /* TODO add good type */
+  const fetchAction = () => { console.log('fetchAction'); };
 
-    const fetchAction = () => { console.log('fetchAction') }
+  console.log('folders', folders);
 
-    console.log('folders', folders)
-
-    return (<div>
-        <Table fetchAction={fetchAction}>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Studied/Count</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        folders.map(({id, title, created}: {id: number, title: string, created: string}) =>
-                        <tr key={id}>
+  return (
+    <div>
+      <Table fetchAction={fetchAction}>
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Studied/Count</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+                        folders.map(({ id, title, created }: {id: number, title: string, created: string}) => (
+                          <tr key={id}>
                             <td>
-                                <Link
-                                style={{ textDecoration: "none" }}
-                                to={{ pathname: `/folder/${id}`}}
-                                state={{id, title, created}}>
+                              <Link
+                                style={{ textDecoration: 'none' }}
+                                to={{ pathname: `/folder/${id}` }}
+                                state={{ id, title, created }}
+                              >
                                 {title}
-                                </Link>
+                              </Link>
                             </td>
                             <td>
-                              ? {/* TODO - receive from backend studied and count */}
+                              ?
+                              {' '}
+                              {/* TODO - receive from backend studied and count */}
                             </td>
                             <td>
-                                Edit
+                              Edit
                             </td>
                             <td>
-                               X
+                              X
                             </td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
-        </Table>
-    </div>)
+                          </tr>
+                        ))
+}
+          </tbody>
+        </table>
+      </Table>
+    </div>
+  );
 }
 
-export default FoldersTable
+export default FoldersTable;

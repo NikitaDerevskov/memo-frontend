@@ -1,7 +1,9 @@
 function Sort() {
-    return <div>
-        {'Sort'}
+  return (
+    <div>
+      Sort
     </div>
+  );
 }
 
-export default Sort
+export default Sort;
