@@ -5,9 +5,11 @@ function Modal(props: { children: boolean | ReactChild | ReactFragment | ReactPo
     /* TODO refactor styles, this only for test purpose */
     return (
         <div className="modal">
-            <div className="modal-content">
-            {'Modal'}
-            {props.children}
+            <div className="modal-wrapper">
+                <div className="modal-container">
+                    {'Modal'}
+                    {props.children}
+                </div>
             </div>
         </div>
     )
