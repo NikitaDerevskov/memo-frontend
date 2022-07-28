@@ -27,11 +27,11 @@ function Folder() {
       .catch((e: { response: { data: any; }; }) => alert(e.response.data));
   }, [id]);
 
-  const card = ({ title, content }: CardT, showContent: boolean) => (
+  const card = ({ title, content }: CardT, showContent_: boolean) => (
     <div>
       {title}
       {' '}
-      {showContent && content}
+      {showContent_ && content}
     </div>
   );
 
@@ -39,8 +39,7 @@ function Folder() {
   const deleteAction = async (cardId: number) => {
     Api.deleteCard(cardId);
     console.log('without await - haha');
-    const cardsWithoutDelited = cards.filter((card: CardT) => card.id !== cardId);
-    setCards((cards) => cardsWithoutDelited);
+    setCards((cards => cards.filter((card: CardT) => card.id !== cardId)));
   };
   return (
     <>

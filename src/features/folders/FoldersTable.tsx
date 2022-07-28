@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import Table from '../utils/Table';
+import { FolderT } from '../../common/types';
 
-function FoldersTable({ folders }: any) { /* TODO add good type */
+function FoldersTable(props: any) { /* TODO add good type */
+  let { folders }: { folders: FolderT[] } = props;
   const fetchAction = () => { console.log('fetchAction'); };
 
   console.log('folders', folders);
@@ -21,7 +23,7 @@ function FoldersTable({ folders }: any) { /* TODO add good type */
           <tbody>
             {
               folders
-                .map(({ id, title, created }: {id: number, title: string, created: string}) => (
+                .map(({ id, title, created }: { id: number, title: string, created: string }) => (
                   <tr key={id}>
                     <td>
                       <Link
@@ -45,7 +47,7 @@ function FoldersTable({ folders }: any) { /* TODO add good type */
                     </td>
                   </tr>
                 ))
-}
+            }
           </tbody>
         </table>
       </Table>

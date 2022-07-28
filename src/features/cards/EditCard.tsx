@@ -14,7 +14,9 @@ function EditCard({ title, content, last_modified }: any) { /* TODO fix type */
 
   /* TODO add work with loading and error */
   const [isLoading, setIsLoading] = useState(false);
+  console.log('isLoading', isLoading);
   const [err, setError] = useState('');
+  console.log('err', err);
   const [cardData, setCardData] = useState({ title, content, last_modified });
 
   const handleClick = async () => {

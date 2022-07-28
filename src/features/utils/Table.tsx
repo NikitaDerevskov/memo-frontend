@@ -1,7 +1,7 @@
 type TableT = {
-    children: JSX.Element,
-    fetchAction: () => void,
-}
+  children: JSX.Element,
+  fetchAction: () => void,
+};
 
 function Table({ children, fetchAction }: TableT) {
   return (
