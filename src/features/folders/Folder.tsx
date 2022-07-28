@@ -35,12 +35,12 @@ function Folder() {
     </div>
   );
 
-  /* TODO this is just for fun - it is 100% not production */
   const deleteAction = async (cardId: number) => {
-    Api.deleteCard(cardId);
-    console.log('without await - haha');
+    /* TODO add error handling */
+    await Api.deleteCard(cardId);
     setCards((cards => cards.filter((card: CardT) => card.id !== cardId)));
   };
+
   return (
     <>
       <Header />
