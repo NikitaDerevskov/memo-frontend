@@ -28,6 +28,7 @@ function Login() {
       />
 
       <button onClick={() => {
+        // TODO add error handling
         Api.login(email, password)
           .then(({ data }: { data: string }) => {
             /* TODO work with Bearer */
