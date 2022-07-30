@@ -26,6 +26,12 @@ class Api {
     );
   }
 
+  deleteFolder(folderId: number) {
+    return axios.delete(`${this.serverUrl}/api/delete-folder`,
+      { params: { folderId }, headers: { Authorization: Api.getToken() } },
+    );
+  }
+
   getFolderCards(folderId: number) {
     return axios.get(
       `${this.serverUrl}/api/get-cards`,
