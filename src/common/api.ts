@@ -19,6 +19,14 @@ class Api {
     });
   }
 
+  registration(name: string, email: string, password: string) {
+    return axios.post(`${this.serverUrl}/api/register`, {
+      name,
+      email,
+      password,
+    });
+  }
+
   getFolders() {
     return axios.get(
       `${this.serverUrl}/api/get-folders`,
