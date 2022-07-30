@@ -19,26 +19,23 @@ function CardTable({ cards, deleteAction }: any) { /* TODO add good type */
           </thead>
           <tbody>
             {
-                    cards.map(({ id, title, last_modified }: CardT) => (
-                      <tr key={id}>
-                        <td>
-                          {title}
-                        </td>
-                        <td>
-                          {last_modified}
-                        </td>
-                        <td>
-                          Edit
-                        </td>
-                        <td onClick={async () => {
-                          deleteAction(id);
-                        }}
-                        >
-                          X
-                        </td>
-                      </tr>
-                    ))
-}
+              cards.map(({ id, title, last_modified }: CardT) => (
+                <tr key={id}>
+                  <td>
+                    {title}
+                  </td>
+                  <td>
+                    {last_modified}
+                  </td>
+                  <td>
+                    Edit
+                  </td>
+                  <td onClick={() => { deleteAction(id); }}>
+                    X
+                  </td>
+                </tr>
+              ))
+            }
           </tbody>
         </table>
       </Table>
