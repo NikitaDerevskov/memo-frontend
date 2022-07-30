@@ -3,7 +3,7 @@ import Table from '../utils/Table';
 import { FolderT } from '../../common/types';
 
 function FoldersTable(props: any) { /* TODO add good type */
-  let { folders }: { folders: FolderT[] } = props;
+  let { folders, deleteAction }: { folders: FolderT[], deleteAction: (id: number) => void } = props;
   const fetchAction = () => { console.log('fetchAction'); };
 
   console.log('folders', folders);
@@ -42,7 +42,7 @@ function FoldersTable(props: any) { /* TODO add good type */
                     <td>
                       Edit
                     </td>
-                    <td>
+                    <td onClick={() => { deleteAction(id); }}>
                       X
                     </td>
                   </tr>
