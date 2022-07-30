@@ -5,6 +5,7 @@ import Login from './features/auth/Login';
 import Registration from './features/auth/Registration';
 import Folder from './features/folders/Folder';
 import EditCard from './features/cards/EditCard';
+import CreateFolder from './features/folders/CreateFolder';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="main" element={<Folders />} />
         <Route path="folder">
           <Route path=":folderId" element={<Folder />} />
+          <Route path="new" element={<CreateFolder />} />
           <Route path=":folderId/card/new" element={<EditCard />} />
         </Route>
         <Route

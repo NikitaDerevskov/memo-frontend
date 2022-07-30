@@ -3,9 +3,12 @@ import Api from '../../common/api';
 import FoldersTable from './FoldersTable';
 import Header from '../header/Header';
 import { FolderT } from '../../common/types';
+import { useNavigate } from 'react-router-dom';
 
 function Folders() {
   const [folders, setFolders] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     Api.getFolders()
@@ -24,11 +27,17 @@ function Folders() {
     setFolders((folders => folders.filter((folder: FolderT) => folder.id !== folderId)));
   };
 
+  const createFolderHandler = () => {
+    /* TODO rethink */
+    navigate('/folder/new');
+  };
+
   return (
     <>
       <Header />
       <div className="folders">
         Folders
+        <button onClick={createFolderHandler}>Create new folder</button>
         <FoldersTable folders={folders} deleteAction={deleteAction}/>
       </div>
     </>
