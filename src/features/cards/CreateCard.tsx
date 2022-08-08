@@ -5,10 +5,10 @@ import Api from '../../common/api';
 
 /* TODO add validation */
 /* TODO refactor work to state from url it will be better */
-function EditCard({ title, content, last_modified }: any) { /* TODO fix type */
+function CreateCard({ title, content, last_modified }: any) { /* TODO fix type */
   const isCardExisted = Boolean(last_modified);
   const location = useLocation();
-  const { id } = location.state as any; /* TODO fix type */
+  const { id } = location.state as any;
 
   const navigate = useNavigate();
 
@@ -86,4 +86,4 @@ function EditCard({ title, content, last_modified }: any) { /* TODO fix type */
   );
 }
 
-export default EditCard;
+export default CreateCard;

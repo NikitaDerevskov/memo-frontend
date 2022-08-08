@@ -4,7 +4,7 @@ import Welcome from './features/auth/Welcome';
 import Login from './features/auth/Login';
 import Registration from './features/auth/Registration';
 import Folder from './features/folders/Folder';
-import EditCard from './features/cards/EditCard';
+import CreateCard from './features/cards/CreateCard';
 import CreateFolder from './features/folders/CreateFolder';
 import EditFolder from './features/folders/EditFolder';
 
@@ -20,7 +20,7 @@ function App() {
           <Route path="new" element={<CreateFolder />} />
           <Route path=":folderId/change" element={<EditFolder />} />
           <Route path=":folderId" element={<Folder />} />
-          <Route path=":folderId/card/new" element={<EditCard />} />
+          <Route path=":folderId/card/new" element={<CreateCard />} />
         </Route>
         <Route
           path="*"
