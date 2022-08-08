@@ -1,7 +1,8 @@
 import Table from '../utils/Table';
 import { CardT } from '../../common/types';
+import { Link } from 'react-router-dom';
 
-function CardTable({ cards, deleteAction }: any) { /* TODO add good type */
+function CardTable({ folderId, cards, deleteAction }: any) { /* TODO add good type */
   const fetchAction = () => { console.log('fetchAction'); };
 
   console.log('cards', cards);
@@ -19,7 +20,7 @@ function CardTable({ cards, deleteAction }: any) { /* TODO add good type */
           </thead>
           <tbody>
             {
-              cards.map(({ id, title, last_modified }: CardT) => (
+              cards.map(({ id, title, content, last_modified }: CardT) => (
                 <tr key={id}>
                   <td>
                     {title}
@@ -28,7 +29,13 @@ function CardTable({ cards, deleteAction }: any) { /* TODO add good type */
                     {last_modified}
                   </td>
                   <td>
-                    Edit
+                    <Link
+                      style={{ textDecoration: 'none' }}
+                      to={{ pathname: `/folder/${folderId}/card/${id}/edit` }}
+                      state={{ id, title, content, folderId }}
+                    >
+                      Edit
+                    </Link>
                   </td>
                   <td onClick={() => { deleteAction(id); }}>
                     X

@@ -5,6 +5,7 @@ import Login from './features/auth/Login';
 import Registration from './features/auth/Registration';
 import Folder from './features/folders/Folder';
 import CreateCard from './features/cards/CreateCard';
+import EditCard from './features/cards/EditCard';
 import CreateFolder from './features/folders/CreateFolder';
 import EditFolder from './features/folders/EditFolder';
 
@@ -18,9 +19,10 @@ function App() {
         <Route path="main" element={<Folders />} />
         <Route path="folder">
           <Route path="new" element={<CreateFolder />} />
-          <Route path=":folderId/change" element={<EditFolder />} />
+          <Route path=":folderId/edit" element={<EditFolder />} />
           <Route path=":folderId" element={<Folder />} />
           <Route path=":folderId/card/new" element={<CreateCard />} />
+          <Route path=":folderId/card/:cardId/edit" element={<EditCard />} />
         </Route>
         <Route
           path="*"

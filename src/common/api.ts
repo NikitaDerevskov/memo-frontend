@@ -72,6 +72,14 @@ class Api {
     );
   }
 
+  editCard(title: string, content: string, id: number) {
+    return axios.put(`
+    ${this.serverUrl}/api/edit-card`,
+    { title, content, id },
+    { headers: { Authorization: Api.getToken() } },
+    );
+  }
+
   deleteCard(cardId: number) {
     return axios.delete(
       `${this.serverUrl}/api/delete-card`,

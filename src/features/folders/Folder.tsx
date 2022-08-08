@@ -60,7 +60,7 @@ function Folder() {
         >
           Create Card
         </button>
-        <CardsTable cards={cards} deleteAction={deleteAction} />
+        <CardsTable folderId={id} cards={cards} deleteAction={deleteAction} />
 
       </div>
       {/* TODO create another component - card modal with this data */}
