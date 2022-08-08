@@ -19,8 +19,8 @@ function editFolder() { /* TODO fix type */
 
   const handleClick = async () => {
     try {
-      const response = await Api.createFolder(folderTitle); // TODO change on edit folder
-      // TODO return from createfolder folder id and move to it.
+      const response = await Api.editFolder(folderTitle, id);
+      /* TODO add error handling */
       navigate('/main');
 
       if (!response.ok) {

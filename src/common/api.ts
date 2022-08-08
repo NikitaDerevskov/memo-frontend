@@ -42,6 +42,14 @@ class Api {
     );
   }
 
+  editFolder(title: string, folderId: number) {
+    return axios.put(`
+    ${this.serverUrl}/api/edit-folder`,
+    { title, folderId },
+    { headers: { Authorization: Api.getToken() } },
+    );
+  }
+
   deleteFolder(folderId: number) {
     return axios.delete(`${this.serverUrl}/api/delete-folder`,
       { params: { folderId }, headers: { Authorization: Api.getToken() } },
