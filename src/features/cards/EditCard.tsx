@@ -8,7 +8,7 @@ import Api from '../../common/api';
 function EditCard({ title, content, last_modified }: any) { /* TODO fix type */
   const isCardExisted = Boolean(last_modified);
   const location = useLocation();
-  const { id } = location.state as any;
+  const { id } = location.state as any; /* TODO fix type */
 
   const navigate = useNavigate();
 

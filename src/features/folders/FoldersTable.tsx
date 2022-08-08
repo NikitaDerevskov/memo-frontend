@@ -40,7 +40,15 @@ function FoldersTable(props: any) { /* TODO add good type */
                       {/* TODO - receive from backend studied and count */}
                     </td>
                     <td>
-                      Edit
+                      <Link
+                        style={{ textDecoration: 'none' }}
+                        to={{ pathname: `/folder/${id}/change` }}
+                        state={{ id, title }}
+                      >
+                        Edit
+                      </Link>
+                      {/* navigate(`/folder/${id}`, { state: { id } }); */}
+
                     </td>
                     <td onClick={() => { deleteAction(id); }}>
                       X
