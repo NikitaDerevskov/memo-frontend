@@ -8,6 +8,7 @@ import CreateCard from './features/cards/CreateCard';
 import EditCard from './features/cards/EditCard';
 import CreateFolder from './features/folders/CreateFolder';
 import EditFolder from './features/folders/EditFolder';
+import './styles.css';
 
 function App() {
   return (
