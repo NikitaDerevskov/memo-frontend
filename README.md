@@ -18,6 +18,7 @@
 - [x] Add eslint
 - [ ] Add sentry
 - [ ] Add ci/cd (and linter stage)
+- [ ] Add styles
 
 
 ## Test:
