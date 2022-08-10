@@ -2,10 +2,14 @@ import { Link } from 'react-router-dom';
 
 function Welcome() {
   return (
-    <main className="welcome container">
-      <p>Welcome</p>
-      <Link to="login">Sing in</Link>
-      <Link to="registration">Sign up</Link>
+    <main className="container h-screen flex align-middle items-center">
+      <div className="container flex flex-col align-middle max-w-lg -mt-24">
+        <h1 className="text-center">Welcome to Memo</h1>
+        <div className="links flex justify-end space-x-4">
+          <Link to="registration">Sign up</Link>
+          <Link to="login">Sing in</Link>
+        </div>
+      </div>
     </main>
   );
 }
