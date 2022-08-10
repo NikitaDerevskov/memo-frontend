@@ -23,3 +23,7 @@
 
 ## Test:
 - [ ] Fetch and error handling
+
+## Interesting things:
+- [ ] Make it so that the application can be used only with a keyboard.
+- [ ] Choose nice color scheme :)
