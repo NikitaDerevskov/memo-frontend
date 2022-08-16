@@ -19,6 +19,7 @@ export default function Header({ pageName } : { pageName: string }) {
           <img src={settingsLogo} alt='settings' />
         </div>
       </div>
+      {/* TODO add logout */}
     </header>
   );
 }
