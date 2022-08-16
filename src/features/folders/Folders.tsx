@@ -34,7 +34,7 @@ function Folders() {
 
   return (
     <>
-      <Header />
+      <Header pageName="Folders"/>
       <div className="folders">
         Folders
         <button onClick={createFolderHandler}>Create new folder</button>

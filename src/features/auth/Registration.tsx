@@ -33,10 +33,11 @@ function Registration() {
 
       <button onClick={() => {
         Api.registration(name, email, password)
-          .then(({ data }: { data: string }) => {
+          .then(({ data }: { data: { token: string, name: string } }) => {
             /* TODO work with Bearer */
             /* TODO change to redux - just for fun */
-            sessionStorage.setItem('token', `Bearer ${data}`);
+            sessionStorage.setItem('userName', data.name);
+            sessionStorage.setItem('token', `Bearer ${data.token}`);
             navigate('/main');
           })
           .catch((e: any) => {

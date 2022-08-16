@@ -8,7 +8,7 @@ import Modal from '../utils/Modal';
 
 function Folder() {
   const location = useLocation();
-  const { id } = location.state as FolderT;
+  const { id, title: FolderTitle } = location.state as FolderT;
 
   const [cards, setCards] = useState([]);
   const [currentCard, setCurrentCard] = useState(0);
@@ -47,7 +47,7 @@ function Folder() {
 
   return (
     <>
-      <Header />
+      <Header pageName={FolderTitle} />
       {/* TODO maybe move this to header? and always have back button */}
       <button onClick={backToFolderListHandler}> Back to folder list</button>
       <div className="folder">
