@@ -9,7 +9,7 @@
 - [ ] Add state manager
 - [ ] Add logout
 - [ ] Add normal markup
-- [ ] Add eslint
+- [x] Add eslint
 - [ ] Add alias
 - [ ] Add lazy loading
 - [ ] Add linter to imports (by alph)
@@ -19,6 +19,7 @@
 - [ ] Add sentry
 - [ ] Add ci/cd (and linter stage)
 - [x] Add styles
+- [ ] Add prettier
 
 
 ## Test:
