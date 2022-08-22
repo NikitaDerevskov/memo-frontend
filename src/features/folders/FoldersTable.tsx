@@ -9,9 +9,9 @@ function FoldersTable(props: any) { /* TODO add good type */
   console.log('folders', folders);
 
   return (
-    <div>
+    <div className="mt-4">
       <Table fetchAction={fetchAction}>
-        <table>
+        <table className="w-full">
           <thead>
             <tr>
               <th>Title</th>
@@ -34,7 +34,7 @@ function FoldersTable(props: any) { /* TODO add good type */
                         {title}
                       </Link>
                     </td>
-                    <td>
+                    <td className="text-center">
                       ?
                       {' '}
                       {/* TODO - receive from backend studied and count */}
@@ -49,7 +49,7 @@ function FoldersTable(props: any) { /* TODO add good type */
                       </Link>
                     </td>
                     <td onClick={() => { deleteAction(id); }}>
-                      X
+                      <span className="cursor-pointer">X</span>
                     </td>
                   </tr>
                 ))
