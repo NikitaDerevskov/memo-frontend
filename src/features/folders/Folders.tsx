@@ -4,6 +4,7 @@ import FoldersTable from './FoldersTable';
 import Header from '../header/Header';
 import { FolderT } from '../../common/types';
 import { useNavigate } from 'react-router-dom';
+import SecondaryButton from '../utils/SecondaryButton';
 
 function Folders() {
   const [folders, setFolders] = useState([]);
@@ -16,7 +17,7 @@ function Folders() {
         setFolders(data);
       })
       .then(() => {
-        console.log('f', folders);
+        console.log('folders', folders);
       })
       .catch((e: { response: { data: any; }; }) => alert(e.response.data));
   }, []);
@@ -35,9 +36,8 @@ function Folders() {
   return (
     <>
       <Header pageName="Folders"/>
-      <div className="folders">
-        Folders
-        <button onClick={createFolderHandler}>Create new folder</button>
+      <div className="container flex flex-col justify-center folders">
+        <SecondaryButton onClick={createFolderHandler} text={'Create new folder'} className="max-w-xs mt-4 mb-4" />
         <FoldersTable folders={folders} deleteAction={deleteAction}/>
       </div>
     </>
