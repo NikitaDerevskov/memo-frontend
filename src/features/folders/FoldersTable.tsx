@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Table from '../utils/Table';
 import { FolderT } from '../../common/types';
+import editSquare from '../../common/img/icons/edit-square.svg';
 
 function FoldersTable(props: any) { /* TODO add good type */
   let { folders, deleteAction }: { folders: FolderT[], deleteAction: (id: number) => void } = props;
@@ -39,13 +40,13 @@ function FoldersTable(props: any) { /* TODO add good type */
                       {' '}
                       {/* TODO - receive from backend studied and count */}
                     </td>
-                    <td>
+                    <td className="flex justify-center">
                       <Link
                         style={{ textDecoration: 'none' }}
                         to={{ pathname: `/folder/${id}/edit` }}
                         state={{ id, title }}
                       >
-                        Edit
+                        <img src={editSquare} className="w-8" alt="edit"/>
                       </Link>
                     </td>
                     <td onClick={() => { deleteAction(id); }}>
