@@ -9,7 +9,7 @@ function CardTable({ folderId, cards, deleteAction }: any) { /* TODO add good ty
   return (
     <div>
       <Table fetchAction={fetchAction}>
-        <table>
+        <table className="w-full">
           <thead>
             <tr>
               <th>Title</th>

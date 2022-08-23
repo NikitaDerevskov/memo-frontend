@@ -5,6 +5,8 @@ import { CardT, FolderT } from '../../common/types';
 import CardsTable from './CardsTable';
 import Header from '../header/Header';
 import Modal from '../utils/Modal';
+import SecondaryButton from '../utils/SecondaryButton';
+import { PrimaryButton } from '../utils/PrimaryButton';
 
 function Folder() {
   const location = useLocation();
@@ -41,19 +43,19 @@ function Folder() {
     setCards((cards => cards.filter((card: CardT) => card.id !== cardId)));
   };
 
+  const createCardHandler = () => {
+    /* TODO rethink */
+    navigate(`/folder/${id}/card/new`, { state: { id } });
+  };
+
   return (
     <>
       <Header pageName={FolderTitle} backRoute="/main"/>
-      <div className="folder">
-        Cards
-        <button onClick={() => { setShowModal(true); }}>Repeat</button>
-        <button onClick={() => {
-          /* TODO rethink */
-          navigate(`/folder/${id}/card/new`, { state: { id } });
-        }}
-        >
-          Create Card
-        </button>
+      <div className="container flex flex-col justify-center folder">
+        <div className='button space-x-4 mt-4 mb-4'>
+          <PrimaryButton onClick={() => { setShowModal(true); }} text='Repeat' className="max-w-xs" />
+          <SecondaryButton text="Create Card" onClick={createCardHandler} />
+        </div>
         <CardsTable folderId={id} cards={cards} deleteAction={deleteAction} />
 
       </div>
