@@ -13,6 +13,7 @@
 - [ ] Add formik
 - [ ] Add state manager (Redux)
 - [ ] Refactor code
+- [ ] Add good types
 - [ ] Check all todos
 - [ ] Add paginations to frontend and backend
 - [ ] Add ci/cd (and linter stage)
