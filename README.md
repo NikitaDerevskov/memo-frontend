@@ -28,7 +28,8 @@
 - [ ] Add alias
 - [ ] Add e2e tests
 - [ ] Add login with github/gmail
-- [ ] Make it so that the application can be used only with a keyboard 
+- [ ] Make it so that the application can be used only with a keyboard
+- [ ] Which way to work with times is best?
 
 ## Interesting things:
 - [ ] Make it so that the application can be used only with a keyboard.
