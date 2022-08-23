@@ -4,30 +4,33 @@
 
 
 # TODO
-- [ ] Add permissions to router
-- [ ] Add better work with forms in React
-- [ ] Add state manager
-- [ ] Add logout
-- [ ] Add normal markup
 - [x] Add eslint
-- [ ] Add alias
-- [ ] Add lazy loading
-- [ ] Add linter to imports (by alph)
-- [ ] Think about css names
-- [ ] Css animations?)
-- [x] Add eslint
-- [ ] Add sentry
-- [ ] Add ci/cd (and linter stage)
 - [x] Add styles
+- [x] Add basic logic
+- [ ] Add basic markup
 - [ ] Add prettier
+- [ ] Add react query
+- [ ] Add formik
+- [ ] Add state manager (Redux)
+- [ ] Refactor code
+- [ ] Check all todos
+- [ ] Add paginations to frontend and backend
+- [ ] Add ci/cd (and linter stage)
 - [ ] Add unit tests
 - [ ] Add integration tests
+- [ ] Add permissions to router
+- [ ] Add sentry
+- [ ] Add logout
+- [ ] Refactor backend
+- [ ] Add settings page
+- [ ] Css animations?
+- [ ] Add lazy loading
+- [ ] Add alias
 - [ ] Add e2e tests
-
-
-## Test:
-- [ ] Fetch and error handling
+- [ ] Add login with github/gmail
+- [ ] Make it so that the application can be used only with a keyboard 
 
 ## Interesting things:
 - [ ] Make it so that the application can be used only with a keyboard.
 - [ ] Choose nice color scheme :)
+- [ ] Try to use github copilot in this project 
