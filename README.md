@@ -20,6 +20,9 @@
 - [ ] Add ci/cd (and linter stage)
 - [x] Add styles
 - [ ] Add prettier
+- [ ] Add unit tests
+- [ ] Add integration tests
+- [ ] Add e2e tests
 
 
 ## Test:
