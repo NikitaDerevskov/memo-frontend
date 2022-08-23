@@ -41,15 +41,9 @@ function Folder() {
     setCards((cards => cards.filter((card: CardT) => card.id !== cardId)));
   };
 
-  const backToFolderListHandler = () => {
-    navigate('/main');
-  };
-
   return (
     <>
-      <Header pageName={FolderTitle} />
-      {/* TODO maybe move this to header? and always have back button */}
-      <button onClick={backToFolderListHandler}> Back to folder list</button>
+      <Header pageName={FolderTitle} backRoute="/main"/>
       <div className="folder">
         Cards
         <button onClick={() => { setShowModal(true); }}>Repeat</button>
