@@ -1,6 +1,8 @@
 import Table from '../utils/Table';
 import { CardT } from '../../common/types';
 import { Link } from 'react-router-dom';
+import deleteIcon from '../../common/img/icons/delete.svg';
+import editSquare from '../../common/img/icons/edit-square.svg';
 
 function CardTable({ folderId, cards, deleteAction }: any) { /* TODO add good type */
   const fetchAction = () => { console.log('fetchAction'); };
@@ -25,8 +27,8 @@ function CardTable({ folderId, cards, deleteAction }: any) { /* TODO add good ty
                   <td>
                     {title}
                   </td>
-                  <td>
-                    {last_modified}
+                  <td className="text-center">
+                    {new Date(last_modified).toLocaleString()}
                   </td>
                   <td>
                     <Link
@@ -34,11 +36,15 @@ function CardTable({ folderId, cards, deleteAction }: any) { /* TODO add good ty
                       to={{ pathname: `/folder/${folderId}/card/${id}/edit` }}
                       state={{ id, title, content, folderId }}
                     >
-                      Edit
+                      <img src={editSquare} className="w-8 mx-auto" alt="edit"/>
                     </Link>
                   </td>
-                  <td onClick={() => { deleteAction(id); }}>
-                    X
+                  <td>
+                    <img
+                      onClick={() => { deleteAction(id); }}
+                      src={deleteIcon}
+                      className="w-8 mx-auto cursor-pointer"
+                      alt="delete"/>
                   </td>
                 </tr>
               ))
