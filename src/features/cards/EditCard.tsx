@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Modal from '../utils/Modal';
 import Api from '../../common/api';
+import Header from '../header/Header';
 
 /* TODO add validation */
 /* TODO refactor work to state from url it will be better */
@@ -35,8 +35,8 @@ function EditCard() { /* TODO fix type */
   };
 
   const editCardJsx = (
-    <Modal>
       <>
+        <Header pageName="New Folder" backRoute={{ to: `/folder/${folderId}`, options: { state: { id: folderId } } }}/>
         <div className="create-card-title">
           <label htmlFor="title">Title</label>
           <input
@@ -60,7 +60,6 @@ function EditCard() { /* TODO fix type */
         </div>
         <button className="create-card-edit" onClick={handleClick}>Create</button>
       </>
-    </Modal>
   );
 
   return (

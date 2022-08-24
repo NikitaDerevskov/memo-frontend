@@ -2,7 +2,7 @@ import settingsLogo from '../../common/img/icons/settings.svg';
 import { useNavigate } from 'react-router-dom';
 import backIcon from '../../common/img/icons/back.svg';
 
-export default function Header({ pageName, backRoute } : { pageName: string, backRoute?: string }) {
+export default function Header({ pageName, backRoute } : { pageName: string, backRoute?: string | { to: string, options: {} } }) {
   const navigate = useNavigate();
   /* TODO refactor to redux */
   let userName = sessionStorage.getItem('userName');
@@ -13,9 +13,14 @@ export default function Header({ pageName, backRoute } : { pageName: string, bac
   };
 
   let handleBackClick = () => {
-    if (backRoute) {
+    if (typeof backRoute === 'string') {
       navigate(backRoute);
     }
+
+    if (typeof backRoute === 'object') {
+      navigate(backRoute.to, backRoute.options);
+    }
+
   };
 
   return (
