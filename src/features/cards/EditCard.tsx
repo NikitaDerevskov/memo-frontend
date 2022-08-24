@@ -60,7 +60,7 @@ function EditCard() { /* TODO fix type */
               }}
             />
           </div>
-          <PrimaryButton text="Create" onClick={handleClick} className="max-w-xs mt-4 mb-4" />
+          <PrimaryButton text="Edit" onClick={handleClick} className="max-w-xs mt-4 mb-4" />
         </main>
       </>
   );
