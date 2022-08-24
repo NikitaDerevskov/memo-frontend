@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Modal from '../utils/Modal';
 import Api from '../../common/api';
+import Header from '../header/Header';
+import { PrimaryButton } from '../utils/PrimaryButton';
 
 /* TODO add validation */
 /* TODO refactor work to state from url it will be better */
@@ -36,9 +38,10 @@ function CreateCard({ title, content, last_modified }: any) { /* TODO fix type *
   };
 
   const newCardJsx = (
-    <Modal>
-      <>
-        <div className="create-card-title">
+    <>
+      <Header pageName='New card' backRoute={{ to: `/folder/${id}`, options: { state: { id } } }}/>
+      <main className="container h-screen flex flex-col align-middle items-center">
+        <div className="create-card-title flex flex-col space-y-4 mt-4">
           <label htmlFor="title">Title</label>
           <input
             id="title"
@@ -49,7 +52,7 @@ function CreateCard({ title, content, last_modified }: any) { /* TODO fix type *
             }}
           />
         </div>
-        <div className="create-card-content">
+        <div className="create-card-content flex flex-col space-y-4 mt-4">
           <label htmlFor="content">Content</label>
           <textarea
             id="content"
@@ -59,10 +62,9 @@ function CreateCard({ title, content, last_modified }: any) { /* TODO fix type *
             }}
           />
         </div>
-        <button className="create-card-edit" onClick={handleClick}>Create</button>
-      </>
-    </Modal>
-
+        <PrimaryButton text="Create" onClick={handleClick} className="max-w-xs mt-4 mb-4" />
+      </main>
+    </>
   );
 
   const existedCardJsx = (
