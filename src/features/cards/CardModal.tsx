@@ -40,7 +40,7 @@ export function CardModal({
           { showContent && <span>{content}</span>}
         </div>
         <PrimaryButton text='Show' onClick={showContentHandler} />
-        <div className='pagination'>
+        <div className='pagination space-x-4'>
           <SecondaryButton text="<" onClick={prevHandler}/>
           <SecondaryButton text=">" onClick={nextHandler}/>
         </div>
