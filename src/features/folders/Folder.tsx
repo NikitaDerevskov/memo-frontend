@@ -4,16 +4,16 @@ import Api from '../../common/api';
 import { CardT, FolderT } from '../../common/types';
 import CardsTable from './CardsTable';
 import Header from '../header/Header';
-import Modal from '../utils/Modal';
 import SecondaryButton from '../utils/SecondaryButton';
 import { PrimaryButton } from '../utils/PrimaryButton';
+import { CardModal } from '../cards/CardModal';
 
 function Folder() {
   const location = useLocation();
   const { id, title: FolderTitle } = location.state as FolderT;
 
   const [cards, setCards] = useState([]);
-  const [currentCard, setCurrentCard] = useState(0);
+  const [cardIndex, setCardIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const navigate = useNavigate();
@@ -29,23 +29,35 @@ function Folder() {
       .catch((e: { response: { data: any; }; }) => alert(e.response.data));
   }, [id]);
 
-  const card = ({ title, content }: CardT, showContent_: boolean) => (
-    <div>
-      {title}
-      {' '}
-      {showContent_ && content}
-    </div>
-  );
-
   const deleteAction = async (cardId: number) => {
     /* TODO add error handling */
     await Api.deleteCard(cardId);
     setCards((cards => cards.filter((card: CardT) => card.id !== cardId)));
   };
 
+  /* TODO add use callbacks */
+
   const createCardHandler = () => {
     /* TODO rethink */
     navigate(`/folder/${id}/card/new`, { state: { id } });
+  };
+
+  const nextHandler = () => {
+    setShowContent(false);
+    setCardIndex((cardIndex) => cardIndex + 1 < cards.length ? cardIndex + 1 : cardIndex);
+  };
+
+  const prevHandler = () => {
+    setShowContent(false);
+    setCardIndex((cardIndex) => cardIndex > 0 ? cardIndex - 1 : 0);
+  };
+
+  const closeHandler = () => {
+    setShowModal((showModal) => !showModal);
+  };
+
+  const showContentHandler = () => {
+    setShowContent((showContent => !showContent));
   };
 
   return (
@@ -59,48 +71,19 @@ function Folder() {
         <CardsTable folderId={id} cards={cards} deleteAction={deleteAction} />
 
       </div>
-      {/* TODO create another component - card modal with this data */}
-      {showModal
-                && (
-                <Modal>
-                  <div>
-                    {currentCard + 1}
-                    /
-                    {cards.length}
-                  </div>
-                  {card(cards[currentCard], showContent)}
-                  Modal example text
-                  <button onClick={() => setShowContent(true)}>SHOW</button>
-                  <div className="pagination">
-                    {/* TODO work with pagination better */}
-                    <button
-                      className="previous"
-                      onClick={() => {
-                        setCurrentCard(currentCard - 1);
-                        setShowContent(false);
-                      }}
-                    >
-                      {'<'}
-                    </button>
-                    <button
-                      className="next"
-                      onClick={() => {
-                        setCurrentCard(currentCard + 1);
-                        setShowContent(false);
-                      }}
-                    >
-                      {'>'}
-                    </button>
-                  </div>
-                  <button onClick={() => {
-                    setShowModal(false);
-                    setCurrentCard(0);
-                  }}
-                  >
-                    CLOSE
-                  </button>
-                </Modal>
-                )}
+      {
+        showModal
+        &&
+        <CardModal
+          cardIndex={cardIndex}
+          currentCard={cards[cardIndex]}
+          showContent={showContent}
+          showContentHandler={showContentHandler}
+          cardsCount={cards.length}
+          nextHandler={nextHandler}
+          prevHandler={prevHandler}
+          closeHandler={closeHandler}
+        />}
     </>
   );
 }

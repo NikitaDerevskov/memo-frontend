@@ -9,7 +9,6 @@ function Modal(props: TestT) { // TODO refactor type
     <div className="modal">
       <div className="modal-wrapper">
         <div className="modal-container">
-          Modal
           {children}
         </div>
       </div>
