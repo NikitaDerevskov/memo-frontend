@@ -35,10 +35,9 @@ export function CardModal({
           /
           { cardsCount }
         </div>
-        <div>
-          {title}
-          {' '}
-          {showContent && content}
+        <div className="flex flex-col">
+          <span>{title}</span>
+          { showContent && <span>{content}</span>}
         </div>
         <PrimaryButton text='Show' onClick={showContentHandler} />
         <div className='pagination'>
