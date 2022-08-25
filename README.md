@@ -7,7 +7,7 @@
 - [x] Add eslint
 - [x] Add styles
 - [x] Add basic logic
-- [ ] Add basic markup
+- [x] Add basic markup
 - [ ] Add prettier
 - [ ] Add react query
 - [ ] Add formik
@@ -15,6 +15,7 @@
 - [ ] Refactor code
 - [ ] Add good types
 - [ ] Check all todos
+- [ ] Improve markup
 - [ ] Add paginations to frontend and backend
 - [ ] Add ci/cd (and linter stage)
 - [ ] Add unit tests
