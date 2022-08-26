@@ -1,6 +1,14 @@
-export function TextArea({ placeholder, value, onChange, id }:
-{ placeholder?: string, value?: string,
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void, id: string }) {
+export function TextArea({
+  placeholder,
+  value,
+  onChange,
+  id,
+}: {
+  placeholder?: string;
+  value?: string;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  id: string;
+}) {
   return (
     <textarea
       className="

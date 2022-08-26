@@ -1,4 +1,4 @@
-const axios = require('axios').default;
+const axios = require("axios").default;
 
 /* TODO export cards, auth and etc, create basic transport */
 /* TODO export urls to constants */
@@ -6,10 +6,11 @@ const axios = require('axios').default;
 /* TODO add cancel request ? */
 
 class Api {
-  serverUrl: string = 'http://localhost:3000';
+  serverUrl: string = "http://localhost:3000";
 
-  static getToken() { // TODO refactor
-    return sessionStorage.getItem('token');
+  static getToken() {
+    // TODO refactor
+    return sessionStorage.getItem("token");
   }
 
   login(email: string, password: string) {
@@ -28,63 +29,74 @@ class Api {
   }
 
   getFolders() {
-    return axios.get(
-      `${this.serverUrl}/api/get-folders`,
-      { headers: { Authorization: Api.getToken() } },
-    );
+    return axios.get(`${this.serverUrl}/api/get-folders`, {
+      headers: { Authorization: Api.getToken() },
+    });
   }
 
   createFolder(title: string) {
-    return axios.post(`
+    return axios.post(
+      `
     ${this.serverUrl}/api/create-folder`,
-    { title },
-    { headers: { Authorization: Api.getToken() } },
+      { title },
+      { headers: { Authorization: Api.getToken() } }
     );
   }
 
   editFolder(title: string, folderId: number) {
-    return axios.put(`
+    return axios.put(
+      `
     ${this.serverUrl}/api/edit-folder`,
-    { title, folderId },
-    { headers: { Authorization: Api.getToken() } },
+      { title, folderId },
+      { headers: { Authorization: Api.getToken() } }
     );
   }
 
   deleteFolder(folderId: number) {
-    return axios.delete(`${this.serverUrl}/api/delete-folder`,
-      { params: { folderId }, headers: { Authorization: Api.getToken() } },
-    );
+    return axios.delete(`${this.serverUrl}/api/delete-folder`, {
+      params: { folderId },
+      headers: { Authorization: Api.getToken() },
+    });
   }
 
   getFolderCards(folderId: number) {
-    return axios.get(
-      `${this.serverUrl}/api/get-cards`,
-      { params: { folderId }, headers: { Authorization: Api.getToken() } },
-    );
+    return axios.get(`${this.serverUrl}/api/get-cards`, {
+      params: { folderId },
+      headers: { Authorization: Api.getToken() },
+    });
   }
 
   /* TODO work with type better */
-  createCard({ folderId, content, title }: { folderId: number, content: string, title: string }) {
+  createCard({
+    folderId,
+    content,
+    title,
+  }: {
+    folderId: number;
+    content: string;
+    title: string;
+  }) {
     return axios.post(
       `${this.serverUrl}/api/create-card`,
       { folderId, content, title },
-      { headers: { Authorization: Api.getToken() } },
+      { headers: { Authorization: Api.getToken() } }
     );
   }
 
   editCard(title: string, content: string, id: number) {
-    return axios.put(`
+    return axios.put(
+      `
     ${this.serverUrl}/api/edit-card`,
-    { title, content, id },
-    { headers: { Authorization: Api.getToken() } },
+      { title, content, id },
+      { headers: { Authorization: Api.getToken() } }
     );
   }
 
   deleteCard(cardId: number) {
-    return axios.delete(
-      `${this.serverUrl}/api/delete-card`,
-      { params: { cardId }, headers: { Authorization: Api.getToken() } },
-    );
+    return axios.delete(`${this.serverUrl}/api/delete-card`, {
+      params: { cardId },
+      headers: { Authorization: Api.getToken() },
+    });
   }
 }
 

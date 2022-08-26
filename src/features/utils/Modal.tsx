@@ -1,8 +1,17 @@
-import { ReactChild, ReactFragment, ReactPortal } from 'react';
+import { ReactChild, ReactFragment, ReactPortal } from "react";
 
-type TestT = { children: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined };
+type TestT = {
+  children:
+    | boolean
+    | ReactChild
+    | ReactFragment
+    | ReactPortal
+    | null
+    | undefined;
+};
 
-function Modal(props: TestT) { // TODO refactor type
+function Modal(props: TestT) {
+  // TODO refactor type
   const { children } = props;
   /* TODO refactor styles, this only for test purpose */
   return (

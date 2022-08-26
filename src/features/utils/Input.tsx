@@ -1,6 +1,16 @@
-export function Input({ type, placeholder, value, onChange, id }:
-{ type: string, placeholder?: string, value?: string,
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void, id: string }) {
+export function Input({
+  type,
+  placeholder,
+  value,
+  onChange,
+  id,
+}: {
+  type: string;
+  placeholder?: string;
+  value?: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  id: string;
+}) {
   return (
     <input
       type={type}

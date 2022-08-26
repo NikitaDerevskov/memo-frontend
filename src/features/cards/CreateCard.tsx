@@ -1,13 +1,14 @@
-import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import Modal from '../utils/Modal';
-import Api from '../../common/api';
-import Header from '../header/Header';
-import { PrimaryButton } from '../utils/PrimaryButton';
+import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import Modal from "../utils/Modal";
+import Api from "../../common/api";
+import Header from "../header/Header";
+import { PrimaryButton } from "../utils/PrimaryButton";
 
 /* TODO add validation */
 /* TODO refactor work to state from url it will be better */
-function CreateCard({ title, content, last_modified }: any) { /* TODO fix type */
+function CreateCard({ title, content, last_modified }: any) {
+  /* TODO fix type */
   const isCardExisted = Boolean(last_modified);
   const location = useLocation();
   const { id } = location.state as any;
@@ -16,9 +17,9 @@ function CreateCard({ title, content, last_modified }: any) { /* TODO fix type *
 
   /* TODO add work with loading and error */
   const [isLoading, setIsLoading] = useState(false);
-  console.log('isLoading', isLoading);
-  const [err, setError] = useState('');
-  console.log('err', err);
+  console.log("isLoading", isLoading);
+  const [err, setError] = useState("");
+  console.log("err", err);
   const [cardData, setCardData] = useState({ title, content, last_modified });
 
   const handleClick = async () => {
@@ -30,7 +31,8 @@ function CreateCard({ title, content, last_modified }: any) { /* TODO fix type *
       if (!response.ok) {
         throw new Error(`Error! status: ${response.status}`);
       }
-    } catch (err: any) { /* TODO fix type */
+    } catch (err: any) {
+      /* TODO fix type */
       setError(err.message);
     } finally {
       setIsLoading(false);
@@ -39,7 +41,10 @@ function CreateCard({ title, content, last_modified }: any) { /* TODO fix type *
 
   const newCardJsx = (
     <>
-      <Header pageName='New card' backRoute={{ to: `/folder/${id}`, options: { state: { id } } }}/>
+      <Header
+        pageName="New card"
+        backRoute={{ to: `/folder/${id}`, options: { state: { id } } }}
+      />
       <main className="container h-screen flex flex-col align-middle items-center">
         <div className="create-card-title flex flex-col space-y-4 mt-4">
           <label htmlFor="title">Title</label>
@@ -62,7 +67,11 @@ function CreateCard({ title, content, last_modified }: any) { /* TODO fix type *
             }}
           />
         </div>
-        <PrimaryButton text="Create" onClick={handleClick} className="max-w-xs mt-4 mb-4" />
+        <PrimaryButton
+          text="Create"
+          onClick={handleClick}
+          className="max-w-xs mt-4 mb-4"
+        />
       </main>
     </>
   );
@@ -72,20 +81,27 @@ function CreateCard({ title, content, last_modified }: any) { /* TODO fix type *
       <>
         <div className="create-card-title">
           <label htmlFor="title">Title</label>
-          <input id="title" type="text" placeholder="Cuber Punk" value={title} />
+          <input
+            id="title"
+            type="text"
+            placeholder="Cuber Punk"
+            value={title}
+          />
         </div>
         <div className="create-card-content">
           <label htmlFor="content">Content</label>
-          <textarea id="content" placeholder="V going to change the world" value={content} />
+          <textarea
+            id="content"
+            placeholder="V going to change the world"
+            value={content}
+          />
         </div>
         <div className="create-card-last_modified">{last_modified}</div>
         <button className="create-card-edit">Edit</button>
       </>
     </Modal>
   );
-  return (
-    isCardExisted ? existedCardJsx : newCardJsx
-  );
+  return isCardExisted ? existedCardJsx : newCardJsx;
 }
 
 export default CreateCard;

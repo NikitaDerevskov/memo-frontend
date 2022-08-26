@@ -1,14 +1,20 @@
-import { Link } from 'react-router-dom';
-import Table from '../utils/Table';
-import { FolderT } from '../../common/types';
-import editSquare from '../../common/img/icons/edit-square.svg';
-import deleteIcon from '../../common/img/icons/delete.svg';
+import { Link } from "react-router-dom";
+import Table from "../utils/Table";
+import { FolderT } from "../../common/types";
+import editSquare from "../../common/img/icons/edit-square.svg";
+import deleteIcon from "../../common/img/icons/delete.svg";
 
-function FoldersTable(props: any) { /* TODO add good type */
-  let { folders, deleteAction }: { folders: FolderT[], deleteAction: (id: number) => void } = props;
-  const fetchAction = () => { console.log('fetchAction'); };
+function FoldersTable(props: any) {
+  /* TODO add good type */
+  let {
+    folders,
+    deleteAction,
+  }: { folders: FolderT[]; deleteAction: (id: number) => void } = props;
+  const fetchAction = () => {
+    console.log("fetchAction");
+  };
 
-  console.log('folders', folders);
+  console.log("folders", folders);
 
   return (
     <div className="mt-4">
@@ -23,44 +29,56 @@ function FoldersTable(props: any) { /* TODO add good type */
             </tr>
           </thead>
           <tbody>
-            {
-              folders
-                .map(({ id, title, created }: { id: number, title: string, created: string }) => (
-                  <tr key={id}>
-                    <td>
-                      <Link
-                        style={{ textDecoration: 'none' }}
-                        to={{ pathname: `/folder/${id}` }}
-                        state={{ id, title, created }}
-                      >
-                        {title}
-                      </Link>
-                    </td>
-                    <td className="text-center">
-                      ?
-                      {' '}
-                      {/* TODO - receive from backend studied and count */}
-                    </td>
-                    <td>
-                      <Link
-                        style={{ textDecoration: 'none' }}
-                        to={{ pathname: `/folder/${id}/edit` }}
-                        state={{ id, title }}
-                      >
-                        <img src={editSquare} className="w-8 mx-auto" alt="edit"/>
-                      </Link>
-                    </td>
-                    {/* TODO ADD cancel effect / or confirm for start */}
-                    <td>
+            {folders.map(
+              ({
+                id,
+                title,
+                created,
+              }: {
+                id: number;
+                title: string;
+                created: string;
+              }) => (
+                <tr key={id}>
+                  <td>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      to={{ pathname: `/folder/${id}` }}
+                      state={{ id, title, created }}
+                    >
+                      {title}
+                    </Link>
+                  </td>
+                  <td className="text-center">
+                    ? {/* TODO - receive from backend studied and count */}
+                  </td>
+                  <td>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      to={{ pathname: `/folder/${id}/edit` }}
+                      state={{ id, title }}
+                    >
                       <img
-                        onClick={() => { deleteAction(id); }}
-                        src={deleteIcon}
-                        className="w-8 mx-auto cursor-pointer"
-                        alt="delete"/>
-                    </td>
-                  </tr>
-                ))
-            }
+                        src={editSquare}
+                        className="w-8 mx-auto"
+                        alt="edit"
+                      />
+                    </Link>
+                  </td>
+                  {/* TODO ADD cancel effect / or confirm for start */}
+                  <td>
+                    <img
+                      onClick={() => {
+                        deleteAction(id);
+                      }}
+                      src={deleteIcon}
+                      className="w-8 mx-auto cursor-pointer"
+                      alt="delete"
+                    />
+                  </td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
       </Table>

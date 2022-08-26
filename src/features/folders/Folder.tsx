@@ -1,12 +1,12 @@
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import Api from '../../common/api';
-import { CardT, FolderT } from '../../common/types';
-import CardsTable from './CardsTable';
-import Header from '../header/Header';
-import SecondaryButton from '../utils/SecondaryButton';
-import { PrimaryButton } from '../utils/PrimaryButton';
-import { CardModal } from '../cards/CardModal';
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Api from "../../common/api";
+import { CardT, FolderT } from "../../common/types";
+import CardsTable from "./CardsTable";
+import Header from "../header/Header";
+import SecondaryButton from "../utils/SecondaryButton";
+import { PrimaryButton } from "../utils/PrimaryButton";
+import { CardModal } from "../cards/CardModal";
 
 function Folder() {
   const location = useLocation();
@@ -26,13 +26,13 @@ function Folder() {
       .then(({ data }: any) => {
         setCards(data);
       })
-      .catch((e: { response: { data: any; }; }) => alert(e.response.data));
+      .catch((e: { response: { data: any } }) => alert(e.response.data));
   }, [id]);
 
   const deleteAction = async (cardId: number) => {
     /* TODO add error handling */
     await Api.deleteCard(cardId);
-    setCards((cards => cards.filter((card: CardT) => card.id !== cardId)));
+    setCards((cards) => cards.filter((card: CardT) => card.id !== cardId));
   };
 
   /* TODO add use callbacks */
@@ -44,12 +44,14 @@ function Folder() {
 
   const nextHandler = () => {
     setShowContent(false);
-    setCardIndex((cardIndex) => cardIndex + 1 < cards.length ? cardIndex + 1 : cardIndex);
+    setCardIndex((cardIndex) =>
+      cardIndex + 1 < cards.length ? cardIndex + 1 : cardIndex
+    );
   };
 
   const prevHandler = () => {
     setShowContent(false);
-    setCardIndex((cardIndex) => cardIndex > 0 ? cardIndex - 1 : 0);
+    setCardIndex((cardIndex) => (cardIndex > 0 ? cardIndex - 1 : 0));
   };
 
   const closeHandler = () => {
@@ -57,23 +59,26 @@ function Folder() {
   };
 
   const showContentHandler = () => {
-    setShowContent((showContent => !showContent));
+    setShowContent((showContent) => !showContent);
   };
 
   return (
     <>
-      <Header pageName={FolderTitle} backRoute="/main"/>
+      <Header pageName={FolderTitle} backRoute="/main" />
       <div className="container flex flex-col justify-center folder">
-        <div className='button space-x-4 mt-4 mb-4'>
-          <PrimaryButton onClick={() => { setShowModal(true); }} text='Repeat' className="max-w-xs" />
+        <div className="button space-x-4 mt-4 mb-4">
+          <PrimaryButton
+            onClick={() => {
+              setShowModal(true);
+            }}
+            text="Repeat"
+            className="max-w-xs"
+          />
           <SecondaryButton text="Create Card" onClick={createCardHandler} />
         </div>
         <CardsTable folderId={id} cards={cards} deleteAction={deleteAction} />
-
       </div>
-      {
-        showModal
-        &&
+      {showModal && (
         <CardModal
           cardIndex={cardIndex}
           currentCard={cards[cardIndex]}
@@ -83,7 +88,8 @@ function Folder() {
           nextHandler={nextHandler}
           prevHandler={prevHandler}
           closeHandler={closeHandler}
-        />}
+        />
+      )}
     </>
   );
 }

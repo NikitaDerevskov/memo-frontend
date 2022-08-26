@@ -1,14 +1,14 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Folders from './features/folders/Folders';
-import Welcome from './features/auth/Welcome';
-import Login from './features/auth/Login';
-import Registration from './features/auth/Registration';
-import Folder from './features/folders/Folder';
-import CreateCard from './features/cards/CreateCard';
-import EditCard from './features/cards/EditCard';
-import CreateFolder from './features/folders/CreateFolder';
-import EditFolder from './features/folders/EditFolder';
-import './styles.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Folders from "./features/folders/Folders";
+import Welcome from "./features/auth/Welcome";
+import Login from "./features/auth/Login";
+import Registration from "./features/auth/Registration";
+import Folder from "./features/folders/Folder";
+import CreateCard from "./features/cards/CreateCard";
+import EditCard from "./features/cards/EditCard";
+import CreateFolder from "./features/folders/CreateFolder";
+import EditFolder from "./features/folders/EditFolder";
+import "./styles.css";
 
 function App() {
   return (
@@ -27,11 +27,11 @@ function App() {
         </Route>
         <Route
           path="*"
-          element={(
-            <main style={{ padding: '1rem' }}>
+          element={
+            <main style={{ padding: "1rem" }}>
               <p>{"There's nothing here!"}</p>
             </main>
-                    )}
+          }
         />
       </Routes>
     </BrowserRouter>
