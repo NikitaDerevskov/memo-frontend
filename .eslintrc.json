@@ -6,7 +6,8 @@
     "extends": [
         "plugin:react/recommended",
         "airbnb-typescript",
-        "plugin:import/recommended"
+        "plugin:import/recommended",
+        "prettier"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -19,13 +20,15 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "prettier"
     ],
     "rules": {
         "react/react-in-jsx-scope": "off",
         "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
         "react/prop-types": 0,
-        "@typescript-eslint/no-shadow": 0
+        "@typescript-eslint/no-shadow": 0,
+        "prettier/prettier": ["error"]
     },
     "globals": {
         "JSX": true,
