@@ -8,8 +8,7 @@
 - [x] Add styles
 - [x] Add basic logic
 - [x] Add basic markup
-- [ ] Add prettier
-- [ ] Add react query
+- [x] Add prettier
 - [ ] Add formik
 - [ ] Add state manager (Redux)
 - [ ] Refactor code
