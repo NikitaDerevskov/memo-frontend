@@ -39,7 +39,7 @@ function editFolder() {
 
   const createFolderJsx = (
     <>
-      <Header pageName="New Folder" backRoute="/main" />
+      <Header backRoute="/main" pageName="New Folder" />
       <main className="container h-screen flex flex-col align-middle items-center">
         <div className="edit-folder-button flex flex-col space-y-4 mt-4">
           <label htmlFor="title">Title</label>
@@ -53,9 +53,9 @@ function editFolder() {
           />
         </div>
         <PrimaryButton
+          className="max-w-xs mt-4 mb-4"
           text="Edit"
           onClick={handleClick}
-          className="max-w-xs mt-4 mb-4"
         />
       </main>
     </>

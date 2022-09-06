@@ -14,24 +14,24 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path="login" element={<Login />} />
-        <Route path="registration" element={<Registration />} />
-        <Route path="main" element={<Folders />} />
+        <Route element={<Welcome />} path="/" />
+        <Route element={<Login />} path="login" />
+        <Route element={<Registration />} path="registration" />
+        <Route element={<Folders />} path="main" />
         <Route path="folder">
-          <Route path="new" element={<CreateFolder />} />
-          <Route path=":folderId/edit" element={<EditFolder />} />
-          <Route path=":folderId" element={<Folder />} />
-          <Route path=":folderId/card/new" element={<CreateCard />} />
-          <Route path=":folderId/card/:cardId/edit" element={<EditCard />} />
+          <Route element={<CreateFolder />} path="new" />
+          <Route element={<EditFolder />} path=":folderId/edit" />
+          <Route element={<Folder />} path=":folderId" />
+          <Route element={<CreateCard />} path=":folderId/card/new" />
+          <Route element={<EditCard />} path=":folderId/card/:cardId/edit" />
         </Route>
         <Route
-          path="*"
           element={
             <main style={{ padding: "1rem" }}>
               <p>{"There's nothing here!"}</p>
             </main>
           }
+          path="*"
         />
       </Routes>
     </BrowserRouter>

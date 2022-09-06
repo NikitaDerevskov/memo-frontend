@@ -40,11 +40,11 @@ function Folders() {
       <Header pageName="Folders" />
       <div className="container flex flex-col justify-center folders">
         <SecondaryButton
-          onClick={createFolderHandler}
-          text={"Create new folder"}
           className="max-w-xs mt-4 mb-4"
+          text={"Create new folder"}
+          onClick={createFolderHandler}
         />
-        <FoldersTable folders={folders} deleteAction={deleteAction} />
+        <FoldersTable deleteAction={deleteAction} folders={folders} />
       </div>
     </>
   );

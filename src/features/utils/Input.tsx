@@ -17,7 +17,6 @@ export function Input({
 }) {
   return (
     <input
-      type={type}
       className="
         form-control
         block
@@ -39,9 +38,10 @@ export function Input({
       id={id}
       name={name}
       placeholder={placeholder}
+      type={type}
       value={value}
-      onChange={onChange}
       onBlur={onBlur}
+      onChange={onChange}
     />
   );
 }

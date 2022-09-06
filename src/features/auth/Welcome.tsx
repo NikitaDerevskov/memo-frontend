@@ -8,8 +8,8 @@ function Welcome() {
         <h1 className="text-center">Welcome to Memo</h1>
         <div className="links flex justify-end space-x-4 mt-5">
           {/* TODO think about orger sign up and sign in  */}
-          <SecondaryLink to="registration" text="Sign up" />
-          <PrimaryLink to="login" text="Sing in" />
+          <SecondaryLink text="Sign up" to="registration" />
+          <PrimaryLink text="Sing in" to="login" />
         </div>
       </div>
     </main>

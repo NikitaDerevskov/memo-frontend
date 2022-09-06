@@ -38,23 +38,23 @@ function createFolder() {
   /* TODO add styles to all inputs (Maybe create 1 component for all) */
   const createFolderJsx = (
     <>
-      <Header pageName="New Folder" backRoute="/main" />
+      <Header backRoute="/main" pageName="New Folder" />
       <main className="container h-screen flex flex-col align-middle items-center">
         <div className="edit-folder-button flex flex-col space-y-4 mt-4">
           <label htmlFor="title">Title</label>
           <Input
             id="title"
-            type="text"
             placeholder="Cyber Punk"
+            type="text"
             onChange={(event) => {
               setFolderTitle(event.target.value);
             }}
           />
         </div>
         <PrimaryButton
+          className="max-w-xs mt-4 mb-4"
           text="Create"
           onClick={handleClick}
-          className="max-w-xs mt-4 mb-4"
         />
       </main>
     </>

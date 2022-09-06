@@ -57,11 +57,11 @@ function EditCard() {
   const editCardJsx = (
     <>
       <Header
-        pageName={`${title} card`}
         backRoute={{
           to: `/folder/${folderId}`,
           options: { state: { id: folderId } },
         }}
+        pageName={`${title} card`}
       />
       <main className="container h-screen flex flex-col align-middle items-center">
         <div className="create-card-title flex flex-col space-y-4 mt-4">
@@ -86,9 +86,9 @@ function EditCard() {
           />
         </div>
         <PrimaryButton
+          className="max-w-xs mt-4 mb-4"
           text="Edit"
           onClick={handleClick}
-          className="max-w-xs mt-4 mb-4"
         />
       </main>
     </>

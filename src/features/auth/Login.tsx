@@ -12,6 +12,10 @@ function Login() {
     <main className="container h-screen flex items-center justify-center">
       <Formik
         initialValues={{ email: "", password: "" }}
+        validationSchema={Yup.object().shape({
+          email: Yup.string().email("Invalid email").required("Required"),
+          password: Yup.string().required("Required"),
+        })}
         onSubmit={(values) => {
           Api.login(values.email, values.password)
             .then(({ data }: { data: { token: string; name: string } }) => {
@@ -25,10 +29,6 @@ function Login() {
               alert(e.response.data);
             });
         }}
-        validationSchema={Yup.object().shape({
-          email: Yup.string().email("Invalid email").required("Required"),
-          password: Yup.string().required("Required"),
-        })}
       >
         {(props) => {
           const {
@@ -52,8 +52,8 @@ function Login() {
                       placeholder="Enter your email"
                       type="text"
                       value={values.email}
-                      onChange={handleChange}
                       onBlur={handleBlur}
+                      onChange={handleChange}
                     />
                     {errors.email && touched.email && (
                       <div className="input-feedback">{errors.email}</div>
@@ -63,18 +63,18 @@ function Login() {
                     <label htmlFor="password">Password</label>
                     <Input
                       id="password"
-                      type="password"
-                      placeholder="password"
                       name="password"
+                      placeholder="password"
+                      type="password"
                       value={values.password}
-                      onChange={handleChange}
                       onBlur={handleBlur}
+                      onChange={handleChange}
                     />
                     {errors.password && touched.password && (
                       <div className="input-feedback">{errors.password}</div>
                     )}
                   </div>
-                  <PrimaryButton type="submit" text="Sign in" />
+                  <PrimaryButton text="Sign in" type="submit" />
                 </div>
               </div>
             </form>

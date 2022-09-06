@@ -13,20 +13,20 @@ function Registration() {
     <div className="registration">
       Registration
       <input
-        type="text"
         placeholder="John"
+        type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
       <input
-        type="email"
         placeholder="Email"
+        type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
       <input
-        type="password"
         placeholder="password"
+        type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />

@@ -42,9 +42,9 @@ function FoldersTable(props: any) {
                 <tr key={id}>
                   <td>
                     <Link
+                      state={{ id, title, created }}
                       style={{ textDecoration: "none" }}
                       to={{ pathname: `/folder/${id}` }}
-                      state={{ id, title, created }}
                     >
                       {title}
                     </Link>
@@ -54,26 +54,26 @@ function FoldersTable(props: any) {
                   </td>
                   <td>
                     <Link
+                      state={{ id, title }}
                       style={{ textDecoration: "none" }}
                       to={{ pathname: `/folder/${id}/edit` }}
-                      state={{ id, title }}
                     >
                       <img
-                        src={editSquare}
-                        className="w-8 mx-auto"
                         alt="edit"
+                        className="w-8 mx-auto"
+                        src={editSquare}
                       />
                     </Link>
                   </td>
                   {/* TODO ADD cancel effect / or confirm for start */}
                   <td>
                     <img
+                      alt="delete"
+                      className="w-8 mx-auto cursor-pointer"
+                      src={deleteIcon}
                       onClick={() => {
                         deleteAction(id);
                       }}
-                      src={deleteIcon}
-                      className="w-8 mx-auto cursor-pointer"
-                      alt="delete"
                     />
                   </td>
                 </tr>

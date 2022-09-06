@@ -32,21 +32,21 @@ function CardTable({ folderId, cards, deleteAction }: any) {
                 </td>
                 <td>
                   <Link
+                    state={{ id, title, content, folderId }}
                     style={{ textDecoration: "none" }}
                     to={{ pathname: `/folder/${folderId}/card/${id}/edit` }}
-                    state={{ id, title, content, folderId }}
                   >
-                    <img src={editSquare} className="w-8 mx-auto" alt="edit" />
+                    <img alt="edit" className="w-8 mx-auto" src={editSquare} />
                   </Link>
                 </td>
                 <td>
                   <img
+                    alt="delete"
+                    className="w-8 mx-auto cursor-pointer"
+                    src={deleteIcon}
                     onClick={() => {
                       deleteAction(id);
                     }}
-                    src={deleteIcon}
-                    className="w-8 mx-auto cursor-pointer"
-                    alt="delete"
                   />
                 </td>
               </tr>

@@ -42,16 +42,16 @@ function CreateCard({ title, content, last_modified }: any) {
   const newCardJsx = (
     <>
       <Header
-        pageName="New card"
         backRoute={{ to: `/folder/${id}`, options: { state: { id } } }}
+        pageName="New card"
       />
       <main className="container h-screen flex flex-col align-middle items-center">
         <div className="create-card-title flex flex-col space-y-4 mt-4">
           <label htmlFor="title">Title</label>
           <input
             id="title"
-            type="text"
             placeholder="Cuber Punk"
+            type="text"
             onChange={(event) => {
               setCardData({ ...cardData, title: event.target.value });
             }}
@@ -68,9 +68,9 @@ function CreateCard({ title, content, last_modified }: any) {
           />
         </div>
         <PrimaryButton
+          className="max-w-xs mt-4 mb-4"
           text="Create"
           onClick={handleClick}
-          className="max-w-xs mt-4 mb-4"
         />
       </main>
     </>
@@ -83,8 +83,8 @@ function CreateCard({ title, content, last_modified }: any) {
           <label htmlFor="title">Title</label>
           <input
             id="title"
-            type="text"
             placeholder="Cuber Punk"
+            type="text"
             value={title}
           />
         </div>

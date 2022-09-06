@@ -34,10 +34,10 @@ export default function Header({
         {/* TODO add component for icon */}
         {backRoute && (
           <img
+            alt="back"
             className="header-back w-4 mx-auto cursor-pointer"
             src={backIcon}
             onClick={handleBackClick}
-            alt="back"
           />
         )}
         <div className="header-page-name">{pageName}</div>
@@ -48,7 +48,7 @@ export default function Header({
           className="header-settings mt-1 cursor-pointer"
           onClick={handleSettingsClick}
         >
-          <img src={settingsLogo} alt="settings" />
+          <img alt="settings" src={settingsLogo} />
         </div>
       </div>
       {/* TODO add logout */}

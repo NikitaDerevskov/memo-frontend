@@ -64,30 +64,30 @@ function Folder() {
 
   return (
     <>
-      <Header pageName={FolderTitle} backRoute="/main" />
+      <Header backRoute="/main" pageName={FolderTitle} />
       <div className="container flex flex-col justify-center folder">
         <div className="button space-x-4 mt-4 mb-4">
           <PrimaryButton
+            className="max-w-xs"
+            text="Repeat"
             onClick={() => {
               setShowModal(true);
             }}
-            text="Repeat"
-            className="max-w-xs"
           />
           <SecondaryButton text="Create Card" onClick={createCardHandler} />
         </div>
-        <CardsTable folderId={id} cards={cards} deleteAction={deleteAction} />
+        <CardsTable cards={cards} deleteAction={deleteAction} folderId={id} />
       </div>
       {showModal && (
         <CardModal
           cardIndex={cardIndex}
-          currentCard={cards[cardIndex]}
-          showContent={showContent}
-          showContentHandler={showContentHandler}
           cardsCount={cards.length}
+          closeHandler={closeHandler}
+          currentCard={cards[cardIndex]}
           nextHandler={nextHandler}
           prevHandler={prevHandler}
-          closeHandler={closeHandler}
+          showContent={showContent}
+          showContentHandler={showContentHandler}
         />
       )}
     </>
