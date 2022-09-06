@@ -1,12 +1,14 @@
 export function Input({
   type,
   placeholder,
+  name,
   value,
   onChange,
   id,
 }: {
   type: string;
   placeholder?: string;
+  name?: string;
   value?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   id: string;
@@ -20,6 +22,7 @@ export function Input({
         w-full
         px-3
         py-1.5
+        p-1.5
         text-base
         font-normal
         text-gray-700
@@ -32,6 +35,7 @@ export function Input({
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
       "
       id={id}
+      name={name}
       placeholder={placeholder}
       value={value}
       onChange={onChange}

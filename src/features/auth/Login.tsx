@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Api from "../../common/api";
 import { PrimaryButton } from "../utils/PrimaryButton";
+import { Input } from "../utils/Input";
 
 function Login() {
   const navigate = useNavigate();
@@ -17,22 +18,24 @@ function Login() {
         <div className="flex flex-col items-center space-y-4">
           <div className="flex flex-col space-y-4">
             <label htmlFor="email">Email</label>
-            <input
+            <Input
               type="email"
               placeholder="Email"
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              id="email"
             />
           </div>
           <div className="flex flex-col space-y-4">
             <label htmlFor="password">Password</label>
-            <input
+            <Input
               type="password"
               placeholder="password"
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              id="password"
             />
           </div>
           <PrimaryButton
