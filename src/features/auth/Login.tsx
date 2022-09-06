@@ -55,8 +55,11 @@ function Login() {
                       onBlur={handleBlur}
                       onChange={handleChange}
                     />
+                    {/* TODO ADD component for errors */}
                     {errors.email && touched.email && (
-                      <div className="input-feedback">{errors.email}</div>
+                      <div className="input-feedback text-rose-600">
+                        {errors.email}
+                      </div>
                     )}
                   </div>
                   <div className="flex flex-col space-y-4">
@@ -71,10 +74,19 @@ function Login() {
                       onChange={handleChange}
                     />
                     {errors.password && touched.password && (
-                      <div className="input-feedback">{errors.password}</div>
+                      <div className="input-feedback text-rose-600">
+                        {errors.password}
+                      </div>
                     )}
                   </div>
-                  <PrimaryButton text="Sign in" type="submit" />
+                  <PrimaryButton
+                    disabled={Boolean(
+                      (errors.password && touched.password) ||
+                        (errors.email && touched.email)
+                    )}
+                    text="Sign in"
+                    type="submit"
+                  />
                 </div>
               </div>
             </form>
