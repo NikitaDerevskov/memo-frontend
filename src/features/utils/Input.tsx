@@ -4,6 +4,7 @@ export function Input({
   name,
   value,
   onChange,
+  onBlur,
   id,
 }: {
   type: string;
@@ -11,7 +12,8 @@ export function Input({
   name?: string;
   value?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  id: string;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  id?: string;
 }) {
   return (
     <input
@@ -39,6 +41,7 @@ export function Input({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
+      onBlur={onBlur}
     />
   );
 }
