@@ -36,3 +36,4 @@
 - [ ] Make it so that the application can be used only with a keyboard.
 - [ ] Choose nice color scheme :)
 - [ ] Try to use github copilot in this project 
+- [ ] Add order for props (alphabet?)
