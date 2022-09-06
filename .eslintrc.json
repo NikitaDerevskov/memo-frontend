@@ -28,7 +28,17 @@
         "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
         "react/prop-types": 0,
         "@typescript-eslint/no-shadow": 0,
-        "prettier/prettier": ["error"]
+        "prettier/prettier": ["error"],
+        "react/jsx-sort-props": [
+            2,
+            {
+                "callbacksLast": true,
+                "shorthandFirst": false,
+                "shorthandLast": true,
+                "ignoreCase": true,
+                "noSortAlphabetically": false
+            }
+        ]
     },
     "globals": {
         "JSX": true,
