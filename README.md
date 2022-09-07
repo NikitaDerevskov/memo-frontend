@@ -37,3 +37,4 @@
 - [x] Try to use github copilot in this project
 - [x] Add order for props (alphabet?)
 - [ ] Add work with html or somethings else in cards. How to work with spaces?
+- [ ] Add min size to inputs on register and login pages
