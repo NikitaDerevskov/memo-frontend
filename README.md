@@ -2,7 +2,6 @@
 1. Run `yarn`
 2. Run `yarn start`
 
-
 # TODO
 - [x] Add eslint
 - [x] Add styles
@@ -35,5 +34,6 @@
 ## Interesting things:
 - [ ] Make it so that the application can be used only with a keyboard.
 - [ ] Choose nice color scheme :)
-- [ ] Try to use github copilot in this project 
-- [ ] Add order for props (alphabet?)
+- [x] Try to use github copilot in this project
+- [x] Add order for props (alphabet?)
+- [ ] Add work with html or somethings else in cards. How to work with spaces?
