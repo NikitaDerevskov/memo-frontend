@@ -79,14 +79,7 @@ function Login() {
                       </div>
                     )}
                   </div>
-                  <PrimaryButton
-                    disabled={Boolean(
-                      (errors.password && touched.password) ||
-                        (errors.email && touched.email)
-                    )}
-                    text="Sign in"
-                    type="submit"
-                  />
+                  <PrimaryButton text="Sign in" type="submit" />
                 </div>
               </div>
             </form>
