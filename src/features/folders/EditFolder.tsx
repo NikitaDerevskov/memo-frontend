@@ -4,6 +4,7 @@ import Header from "../header/Header";
 import { PrimaryButton } from "../utils/PrimaryButton";
 import { Input } from "../utils/Input";
 import { Formik } from "formik";
+import * as Yup from "yup";
 
 /* TODO add validation */
 /* TODO refactor work to state from url it will be better */
@@ -20,6 +21,9 @@ function editFolder() {
       <main className="container h-screen flex flex-col align-middle items-center">
         <Formik
           initialValues={{ title }}
+          validationSchema={Yup.object().shape({
+            title: Yup.string().required("Required"),
+          })}
           onSubmit={async (values) => {
             // TODO add error handling
             await Api.editFolder(values.title, id)
