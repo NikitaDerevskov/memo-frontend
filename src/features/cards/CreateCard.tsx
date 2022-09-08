@@ -5,6 +5,7 @@ import { PrimaryButton } from "../utils/PrimaryButton";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { Input } from "../utils/Input";
+import { TextArea } from "../utils/TextArea";
 
 /* TODO add validation */
 /* TODO refactor work to state from url it will be better */
@@ -68,7 +69,7 @@ function CreateCard() {
                 </div>
                 <div className="create-card-content flex flex-col space-y-4 mt-4">
                   <label htmlFor="content">Content</label>
-                  <textarea
+                  <TextArea
                     id="content"
                     placeholder="V going to change the world"
                     value={values.content}
