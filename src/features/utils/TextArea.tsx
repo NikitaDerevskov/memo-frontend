@@ -3,10 +3,12 @@ export function TextArea({
   value,
   onChange,
   id,
+  onBlur,
 }: {
   placeholder?: string;
   value?: string;
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onBlur: (e: React.FocusEvent<HTMLTextAreaElement>) => void;
   id: string;
 }) {
   return (
@@ -31,6 +33,7 @@ export function TextArea({
       id={id}
       placeholder={placeholder}
       value={value}
+      onBlur={onBlur}
       onChange={onChange}
     />
   );
