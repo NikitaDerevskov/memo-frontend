@@ -39,3 +39,4 @@
 - [ ] Add work with html or somethings else in cards. How to work with spaces?
 - [ ] Add min size to inputs on register and login pages
 - [ ] Add auto focus to important inputs (for example in create/edit folders/cards)
+- [ ] Add order for imports
