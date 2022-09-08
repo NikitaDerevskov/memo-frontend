@@ -62,7 +62,7 @@ function editFolder() {
                 </div>
                 <PrimaryButton
                   className="max-w-xs mt-4 mb-4"
-                  text="Create"
+                  text="Edit"
                   type="submit"
                 />
               </form>
