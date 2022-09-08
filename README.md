@@ -8,7 +8,7 @@
 - [x] Add basic logic
 - [x] Add basic markup
 - [x] Add prettier
-- [ ] Add formik
+- [x] Add formik
 - [ ] Add state manager (Redux)
 - [ ] Refactor code
 - [ ] Add good types
@@ -40,3 +40,4 @@
 - [ ] Add min size to inputs on register and login pages
 - [ ] Add auto focus to important inputs (for example in create/edit folders/cards)
 - [ ] Add order for imports
+- [ ] Watch more about formik (maybe read more documentation)
