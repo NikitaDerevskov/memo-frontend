@@ -24,9 +24,9 @@ function editFolder() {
           validationSchema={Yup.object().shape({
             title: Yup.string().required("Required"),
           })}
-          onSubmit={async (values) => {
+          onSubmit={(values) => {
             // TODO add error handling
-            await Api.editFolder(values.title, id)
+            Api.editFolder(values.title, id)
               .then(() => {
                 navigate("/main");
               })

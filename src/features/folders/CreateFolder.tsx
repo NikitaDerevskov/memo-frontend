@@ -23,9 +23,9 @@ function createFolder() {
           validationSchema={Yup.object().shape({
             title: Yup.string().required("Required"),
           })}
-          onSubmit={async (values) => {
+          onSubmit={(values) => {
             // TODO add error handling
-            await Api.createFolder(values.title)
+            Api.createFolder(values.title)
               .then(() => {
                 navigate("/main");
               })
