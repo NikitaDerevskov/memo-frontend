@@ -44,3 +44,11 @@
 
 # Redux:
 - [ ] Export token
+
+# Watch:
+- [ ] Watch 4 projects with Redux
+- [ ] Watch 4 projects with Formik
+- [ ] Watch 4 projects with React-router
+- [ ] Watch 4 projects with Tests
+- [ ] Watch 4 projects with Story book
+- [ ] Watch 4 projects with React
