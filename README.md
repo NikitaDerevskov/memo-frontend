@@ -41,3 +41,6 @@
 - [ ] Add auto focus to important inputs (for example in create/edit folders/cards)
 - [ ] Add order for imports
 - [ ] Watch more about formik (maybe read more documentation)
+
+# Redux:
+- [ ] Export token
