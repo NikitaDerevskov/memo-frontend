@@ -45,6 +45,8 @@
 
 # Redux:
 - [ ] Export token
+- [ ] Save token to?
+- [ ] Read tomorrow https://jasonwatmore.com/post/2022/06/15/react-18-redux-jwt-authentication-example-tutorial
 
 # Watch:
 - [ ] Watch 4 projects with Redux
