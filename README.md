@@ -31,6 +31,7 @@
 - [ ] Make it so that the application can be used only with a keyboard
 - [ ] Which way to work with times is best?
 - [ ] Add prefer const to linter
+- [ ] Add storybook
 
 ## Interesting things:
 - [ ] Make it so that the application can be used only with a keyboard.
