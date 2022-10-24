@@ -42,8 +42,7 @@ class Api {
     return axios.post(
       `
     ${this.serverUrl}/api/create-folder`,
-      { title },
-      { headers: { Authorization: Api.getToken() } }
+      { title }
     );
   }
 
