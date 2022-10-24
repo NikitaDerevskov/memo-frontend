@@ -8,6 +8,10 @@ const axios = require("axios").default;
 class Api {
   serverUrl: string = "http://localhost:3000";
 
+  setToken(token: string) {
+    axios.defaults.headers.common.Authorization = "Bearer " + token;
+  }
+
   static getToken() {
     // TODO refactor
     return sessionStorage.getItem("token");
