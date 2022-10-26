@@ -9,12 +9,7 @@ class Api {
   serverUrl: string = "http://localhost:3000";
 
   setToken(token: string) {
-    axios.defaults.headers.common.Authorization = "Bearer " + token;
-  }
-
-  static getToken() {
-    // TODO refactor
-    return sessionStorage.getItem("token");
+    axios.defaults.headers.common.Authorization = "Bearer " + token; // TODO remove Bearer
   }
 
   login(email: string, password: string) {
@@ -33,9 +28,7 @@ class Api {
   }
 
   getFolders() {
-    return axios.get(`${this.serverUrl}/api/get-folders`, {
-      headers: { Authorization: Api.getToken() },
-    });
+    return axios.get(`${this.serverUrl}/api/get-folders`, {});
   }
 
   createFolder(title: string) {
@@ -50,22 +43,19 @@ class Api {
     return axios.put(
       `
     ${this.serverUrl}/api/edit-folder`,
-      { title, folderId },
-      { headers: { Authorization: Api.getToken() } }
+      { title, folderId }
     );
   }
 
   deleteFolder(folderId: number) {
     return axios.delete(`${this.serverUrl}/api/delete-folder`, {
       params: { folderId },
-      headers: { Authorization: Api.getToken() },
     });
   }
 
   getFolderCards(folderId: number) {
     return axios.get(`${this.serverUrl}/api/get-cards`, {
       params: { folderId },
-      headers: { Authorization: Api.getToken() },
     });
   }
 
@@ -79,26 +69,24 @@ class Api {
     content: string;
     title: string;
   }) {
-    return axios.post(
-      `${this.serverUrl}/api/create-card`,
-      { folderId, content, title },
-      { headers: { Authorization: Api.getToken() } }
-    );
+    return axios.post(`${this.serverUrl}/api/create-card`, {
+      folderId,
+      content,
+      title,
+    });
   }
 
   editCard(title: string, content: string, id: number) {
     return axios.put(
       `
     ${this.serverUrl}/api/edit-card`,
-      { title, content, id },
-      { headers: { Authorization: Api.getToken() } }
+      { title, content, id }
     );
   }
 
   deleteCard(cardId: number) {
     return axios.delete(`${this.serverUrl}/api/delete-card`, {
       params: { cardId },
-      headers: { Authorization: Api.getToken() },
     });
   }
 }
