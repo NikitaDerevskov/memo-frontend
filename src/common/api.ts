@@ -9,7 +9,7 @@ class Api {
   serverUrl: string = "http://localhost:3000";
 
   setToken(token: string) {
-    axios.defaults.headers.common.Authorization = "Bearer " + token; // TODO remove Bearer
+    axios.defaults.headers.common.Authorization = token;
   }
 
   login(email: string, password: string) {

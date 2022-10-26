@@ -20,10 +20,9 @@ function Registration() {
         onSubmit={(values) => {
           Api.registration(values.name, values.email, values.password)
             .then(({ data }: { data: { token: string; name: string } }) => {
-              /* TODO remove Bearer */
               Api.setToken(data.token);
               localStorage.setItem("userName", data.name);
-              localStorage.setItem("token", `Bearer ${data.token}`);
+              localStorage.setItem("token", data.token);
               navigate("/main");
             })
             .catch((e: any) => {
