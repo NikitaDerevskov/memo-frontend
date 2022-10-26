@@ -22,8 +22,8 @@ function Login() {
               /* TODO work with Bearer */
               /* TODO change to redux - just for fun */
               Api.setToken(data.token);
-              sessionStorage.setItem("userName", data.name);
-              sessionStorage.setItem("token", `Bearer ${data.token}`);
+              localStorage.setItem("userName", data.name);
+              localStorage.setItem("token", `Bearer ${data.token}`);
               navigate("/main");
             })
             .catch((e: any) => {

@@ -17,20 +17,19 @@ function Registration() {
           email: Yup.string().email("Invalid email").required("Required"),
           password: Yup.string().required("Required"),
         })}
-        onSubmit={(values) =>
+        onSubmit={(values) => {
           Api.registration(values.name, values.email, values.password)
             .then(({ data }: { data: { token: string; name: string } }) => {
-              /* TODO work with Bearer */
-              /* TODO change to redux - just for fun */
+              /* TODO remove Bearer */
               Api.setToken(data.token);
-              sessionStorage.setItem("userName", data.name);
-              sessionStorage.setItem("token", `Bearer ${data.token}`);
+              localStorage.setItem("userName", data.name);
+              localStorage.setItem("token", `Bearer ${data.token}`);
               navigate("/main");
             })
             .catch((e: any) => {
               alert(e.response.data);
-            })
-        }
+            });
+        }}
       >
         {(props) => {
           const {

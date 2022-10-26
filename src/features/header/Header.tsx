@@ -11,7 +11,7 @@ export default function Header({
 }) {
   const navigate = useNavigate();
   /* TODO refactor to redux */
-  let userName = sessionStorage.getItem("userName");
+  let userName = localStorage.getItem("userName");
 
   let handleSettingsClick = () => {
     /* TODO */
