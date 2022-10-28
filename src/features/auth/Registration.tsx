@@ -4,9 +4,12 @@ import { PrimaryButton } from "../utils/PrimaryButton";
 import { Formik } from "formik";
 import { Input } from "../utils/Input";
 import * as Yup from "yup";
+import { useDispatch } from "react-redux";
+import { setUserName, setToken } from "./authSlice";
 
 function Registration() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <main className="container h-screen flex items-center justify-center">
@@ -23,6 +26,8 @@ function Registration() {
               Api.setToken(data.token);
               localStorage.setItem("userName", data.name);
               localStorage.setItem("token", data.token);
+              dispatch(setUserName(data.name));
+              dispatch(setToken(data.token));
               navigate("/main");
             })
             .catch((e: any) => {
