@@ -1,21 +1,25 @@
 module.exports = {
   extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:import/recommended",
-    "plugin:jsx-a11y/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "eslint-config-prettier",
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:import/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'eslint-config-prettier',
   ],
   settings: {
     react: {
-      version: "detect",
+      version: 'detect',
     },
-    "import/resolver": {
+    'import/resolver': {
       node: {
-        paths: ["src"],
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
+        paths: ['src'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
+  },
+  rules: {
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx'] }],
   },
 };
