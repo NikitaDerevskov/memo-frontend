@@ -1,14 +1,16 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { createRoot } from 'react-dom/client';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { MantineProvider } from '@mantine/core';
 
 const container = document.getElementById('root');
-const root = createRoot(container!);
+const root = ReactDOM.createRoot(container as HTMLElement);
 
 root.render(
-  <MantineProvider withGlobalStyles withNormalizeCSS>
-    <App />
-  </MantineProvider>,
+  <React.StrictMode>
+    <MantineProvider withGlobalStyles withNormalizeCSS>
+      <App />
+    </MantineProvider>
+  </React.StrictMode>,
 );
